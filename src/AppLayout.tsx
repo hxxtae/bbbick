@@ -1,6 +1,6 @@
 import { PropsWithChildren, useMemo } from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
-import { useTheme } from './hooks/useTheme'
+import { useTheme } from './hooks/common/useTheme'
 import { getDesignTokens } from './styles/theme'
 
 export const AppLayout = ({ children }: PropsWithChildren) => {
