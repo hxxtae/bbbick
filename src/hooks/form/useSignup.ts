@@ -2,7 +2,7 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase
 import { useNavigate } from 'react-router-dom';
 
 import { ISignup } from '@/interface/form'
-import { app, db } from '@/firebaseApp';
+import { app, db } from '@/service/firebaseApp';
 import { doc, setDoc } from 'firebase/firestore';
 
 export const useSignup = () => {
