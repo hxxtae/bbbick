@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
 import * as S from './style';
+import { Link } from 'react-router-dom';
 
 export const SignupSubmit = () => {
   return (
     <S.Div>
-      <Link to={'/signin'}>로그인</Link>
-      <S.Submit type="submit">회원가입</S.Submit>
+      <Link to={"/signin"}><S.Login>로그인</S.Login></Link>
+      <S.Submit type="submit" variant='contained'>회원가입</S.Submit>
     </S.Div>
   )
 }

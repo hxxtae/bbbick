@@ -9,14 +9,7 @@ export const Icon = styled.strong`
 export const H1 = styled.h1`
   font-size: 20px;
   text-align: left;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 `;
 
-export const Form = styled.form`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 50px;
-`;
 

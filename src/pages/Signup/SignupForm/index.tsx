@@ -1,55 +1,55 @@
-import { FormState, UseFormGetValues, UseFormRegister, UseFormSetValue } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
+import { Check, Group, InputPassword, InputText, Title } from '@/components/form/Input';
 import { emailValidate, passwordValidate } from '@/utils/regexps';
-import { SignUpCol, SignUpRow } from '@/components/form/InputGroup'
+import { useSignup } from '@/hooks/form/useSignup';
+import { SignupSubmit } from '../SignupSubmit';
 import { ISignup } from '@/interface/form';
+import * as S from './style';
 
+const Signup = Object.assign(Group, {
+  InputText,
+  InputPassword,
+  Check,
+  Title
+})
 
-interface SignupFormProps {
-  register: UseFormRegister<ISignup>;
-  getValues: UseFormGetValues<ISignup>
-  formState: FormState<ISignup>;
-  setValue?: UseFormSetValue<ISignup>;
-}
+export const SignupForm = () => {
+  const { register, handleSubmit, getValues, formState: { errors } } = useForm<ISignup>();
+  const { onSubmit } = useSignup();
 
-export const SignupForm = ({ register, getValues, formState }: SignupFormProps) => {
   return (
-    <>
-      <SignUpCol>
-        <SignUpCol.Title title="이메일 주소" id='email' />
-        <SignUpCol.Input id="email" type="text" resister={register("email", {
+    <S.Form onSubmit={handleSubmit(onSubmit)}>
+      <Signup>
+        <Signup.InputText type="text" title="이메일" helperText={errors.email?.message} resister={register("email", {
           required: "필수 입력값 입니다.",
           validate: (v: string) => emailValidate(v) || "올바른 형식이 아닙니다.",
         })} />
-        <SignUpCol.Error error={formState.errors.email?.message}/>
-      </SignUpCol>
-      <SignUpCol>
-        <SignUpCol.Title title="비밀번호" id='password' />
-        <SignUpCol.Input id="password" type="password" resister={register("password", {
+      </Signup>
+      <Signup>
+        <Signup.InputPassword type="password" title="비밀번호" helperText={errors.password?.message} resister={register("password", {
           required: "필수 입력값 입니다.",
           validate: (v: string) => passwordValidate(v) || "영문, 숫자, 특수문자 중 2가지 이상 조합으로 입력해 주세요."
         })} />
-        <SignUpCol.Error error={formState.errors.password?.message} />
-      </SignUpCol>
-      <SignUpCol>
-        <SignUpCol.Title title="비밀번호 확인" id='passwordConfirm' />
-        <SignUpCol.Input id="passwordConfirm" type="password" resister={register("passwordConfirm", {
+      </Signup>
+      <Signup>
+        <Signup.InputPassword type="password" title="비밀번호 확인" helperText={errors.passwordConfirm?.message} resister={register("passwordConfirm", {
           required: "필수 입력값 입니다.",
           validate: (value) => getValues('password') === value || "비밀번호가 다릅니다."
         })} />
-        <SignUpCol.Error error={formState.errors.passwordConfirm?.message} />
-      </SignUpCol>
-      <SignUpCol>
-        <SignUpCol.Title title="이름" id='name' />
-        <SignUpCol.Input id="name" type="text" resister={register("nickname", {
+      </Signup>
+      <Signup>
+        <Signup.InputText type="text" title="닉네임" helperText={errors.nickname?.message} resister={register("nickname", {
           required: "필수 입력값 입니다."
         })} />
-        <SignUpCol.Error error={formState.errors.nickname?.message}/>
-      </SignUpCol>
-      <SignUpRow>
-        <SignUpRow.Check id="authType" resister={register("authType")} />
-        <SignUpRow.Title title="판매자로 회원가입" id="authType" />
-      </SignUpRow>
-    </>
+      </Signup>
+      <Signup>
+        <S.Col>
+          <Signup.Check id="authType" resister={register("authType")} />
+          <Signup.Title id="authType" title="판매자로 회원가입"/>
+        </S.Col>
+      </Signup>
+      <SignupSubmit />
+    </S.Form>
   )
 }
