@@ -12,11 +12,4 @@ export const H1 = styled.h1`
   margin-bottom: 80px;
 `;
 
-export const Form = styled.form`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 50px;
-`;
 

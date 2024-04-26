@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { ButtonBase } from '@mui/material';
+import { Button } from '@mui/material';
 
 export const Div = styled.div`
   display: flex;
@@ -8,6 +8,10 @@ export const Div = styled.div`
   margin-top: 40px;
 `
 
-export const Submit = styled(ButtonBase)`
+export const Signup = styled(Button)`
+
+`;
+
+export const Submit = styled(Button)`
   
 `

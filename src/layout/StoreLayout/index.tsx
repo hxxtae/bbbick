@@ -1,9 +1,17 @@
 import { Outlet } from 'react-router-dom'
 
+import { Header } from '../Header';
+import { SideNav } from '../SideNav';
+import * as S from './style';
+
 export const StoreLayout = () => {
   return (
-    <div>
-      <Outlet />
-    </div>
+    <S.Wrapper>
+      <Header/>
+      <S.Container>
+        <SideNav />
+        <Outlet />
+      </S.Container>
+    </S.Wrapper>
   )
 }

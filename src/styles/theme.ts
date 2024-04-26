@@ -1,31 +1,87 @@
-import { PaletteMode } from '@mui/material';
-import { amber, deepOrange, grey  } from '@mui/material/colors';
+import { PaletteMode, colors } from '@mui/material';
+import { typography } from '@mui/system';
 
 export const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
+    ...(mode === 'light' ? lightPalette : darkPalette),
     mode,
-    ...(mode === 'light'
-      ? {
-          // palette values for light mode
-          primary: amber,
-          divider: amber[200],
-          text: {
-            primary: grey[900],
-            secondary: grey[800],
-          },
-        }
-      : {
-          // palette values for dark mode
-          primary: deepOrange,
-          divider: deepOrange[700],
-          background: {
-            default: deepOrange[900],
-            paper: deepOrange[900],
-          },
-          text: {
-            primary: '#fff',
-            secondary: grey[500],
-          },
-        }),
+  },
+  typography: {
+    ...typography,
+    fontSize: 14,
+  },
+  breakpoints: {
+    key: {
+      0: "xs",
+      1: "sm",
+      2: "md",
+      3: "lg",
+      4: "xl"
+    },
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536
+    },
   },
 });
+
+const lightPalette = {
+  primary: {
+    main: '#0058F5',
+    light: colors.blue[700],
+    dark: colors.blue[700],
+  },
+  error: {
+    main: colors.red[700],
+    light: colors.red[300],
+    dark: colors.red[700],
+    contrastText: colors.common.white
+  },
+  success: {
+    main: '#13BD74',
+    sub: '#96E4C5'
+  },
+  border: {
+    main: '#E2E3E6',
+  },
+  bg: {
+    main: '#FFFFFF',
+    card: '#F0F2F4',
+  },
+  text: {
+    main: '#111111',
+    sub: '#BFC6D0'
+  }
+}
+
+const darkPalette = {
+  primary: {
+    main: '#0058F5',
+    light: colors.blue[700],
+    dark: colors.blue[700],
+  },
+  error: {
+    main: colors.red[500],
+    light: colors.red[400],
+    dark: colors.red[800],
+    contrastText: colors.common.white
+  },
+  success: {
+    main: '#13BD74',
+    sub: '#96E4C5'
+  },
+  border: {
+    main: '#3F3F3F'
+  },
+  bg: {
+    main: '#111111',
+    card: '#1E1E1E',
+  },
+  text: {
+    main: '#FFFFFF',
+    sub: '#e7e7e7'
+  },
+}
