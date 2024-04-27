@@ -55,10 +55,10 @@ export const Check = ({ resister, ...config }: CheckProps) => {
 export const Select = ({ resister, options }: SelectProps) => {
   return (
     <FormControl>
-      <S.SelectBox variant="outlined" defaultValue={options[0].KEY} {...resister}>
+      <S.SelectBox variant="outlined" {...resister}>
         {options.map((option) => (
-          <MenuItem key={option.KEY} value={option.KEY}>
-            {option.VALUE}
+          <MenuItem key={option[0]} value={option[0]}>
+            {option[1]}
           </MenuItem>
         ))}
       </S.SelectBox>

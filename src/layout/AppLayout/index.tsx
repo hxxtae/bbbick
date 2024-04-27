@@ -8,7 +8,7 @@ import * as S from './style';
 
 export const AppLayout = ({ children }: PropsWithChildren) => {
   const { mode } = useTheme();
-  const theme = createTheme(getDesignTokens(mode))
+  const theme = createTheme(getDesignTokens(mode));
 
   return (
     <ThemeProvider theme={theme}>

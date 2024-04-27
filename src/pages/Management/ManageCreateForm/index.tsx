@@ -1,11 +1,12 @@
 import { useForm } from 'react-hook-form';
 
 import { Group, InputText, InputTextArea, Select, Title } from '@/components/form/Input';
-import { useAddProduct } from '@/hooks/form/useAddProduct';
+import { useAddProduct } from '@/hooks/product/useAddProduct';
 import { IProductForm } from '@/interface/form';
-import { BOOK_CATEGORY } from '@/constants/form';
+import { BOOK_CATEGORY_1, BOOK_CATEGORY_2 } from '@/constants/product';
 import { Files } from '@/components/form/files';
 import * as S from './style';
+import { CategoryKey } from '@/interface/products';
 
 const ManageForm = Object.assign(Group, {
   Title,
@@ -17,7 +18,10 @@ const ManageForm = Object.assign(Group, {
 export const ManageCreateForm = () => {
   const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm<IProductForm>();
   const { isLoading, onSubmit } = useAddProduct();
-  const BOOK_CATEGORY_2 = BOOK_CATEGORY.find((item) => item.KEY === (watch('category1') ?? BOOK_CATEGORY[0].KEY))!.MIDDLE;
+  const selectData1 = Object.entries(BOOK_CATEGORY_1);
+  const selectData2 = Object.entries(BOOK_CATEGORY_2[watch('category1') as CategoryKey ?? '010']);
+  console.log(selectData1)
+  console.log(selectData2)
   
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
@@ -28,7 +32,7 @@ export const ManageCreateForm = () => {
         <ManageForm>
           <ManageForm.Title title="카테고리(대분류)*" id='category1'/>
           <ManageForm.Select
-            options={BOOK_CATEGORY}
+            options={selectData1}
             resister={register("category1", {
               required: "필수입력란 입니다.",
               onChange(e) {
@@ -39,7 +43,7 @@ export const ManageCreateForm = () => {
         <ManageForm>
           <ManageForm.Title title="카테고리(중분류)*" id="category2"/>
           <ManageForm.Select
-            options={BOOK_CATEGORY_2}
+            options={selectData2 ?? []}
             resister={register("category2", {
               required: "필수입력란 입니다.",
               onChange(e) {
@@ -120,7 +124,8 @@ export const ManageCreateForm = () => {
             id="writer"
             helperText={errors.writer?.message}
             resister={register("writer", {
-            maxLength: 20
+              required: "필수입력란 입니다.",
+              maxLength: 20
           })}/>
         </ManageForm>
       </S.Row>

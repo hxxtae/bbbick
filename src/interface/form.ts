@@ -32,8 +32,8 @@ export interface IProductForm {
   pageNumber: string | null;
   weight: string | null;
   bookSize: string | null;
-  createAt: string;
-  updateAt: string;
+  createAt: string | null;
+  updateAt: string | null;
 }
 
 export type IFilePath = "images";

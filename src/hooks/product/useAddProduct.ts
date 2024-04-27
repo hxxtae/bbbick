@@ -2,7 +2,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-import { INIT_PRODUCT_DATA } from '@/constants/form';
+import { INIT_PRODUCT_DATA } from '@/constants/product';
 import { IProductForm } from '@/interface/form';
 import { localStorageKeys } from '@/constants/keys';
 import { db } from '@/service/firebaseApp';
@@ -12,13 +12,19 @@ export const useAddProduct = () => {
   const navigate = useNavigate();
   
   const onSubmit = async (data: IProductForm = INIT_PRODUCT_DATA) => {
-    setIsLoading(true)
+    // setIsLoading(true)
     const files = JSON.parse(localStorage.getItem(localStorageKeys.files) ?? '[');
     const formData: IProductForm = {
       ...data,
       productImg_url: [
         ...files
-      ]
+      ],
+      createAt: new Date()?.toLocaleDateString("ko", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }),
+      updateAt: null
     }
 
     try {
