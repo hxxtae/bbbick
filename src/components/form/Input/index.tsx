@@ -4,10 +4,6 @@ import { PropsWithChildren } from 'react';
 
 import * as S from './style';
 
-interface OptionType {
-  [key: string]: any;
-}
-
 interface ResisterProps {
   resister: UseFormRegisterReturn;
 }
@@ -27,7 +23,7 @@ interface CheckProps extends ResisterProps {
 }
 
 interface SelectProps extends ResisterProps {
-  options: OptionType[];
+  options: [string, string][];
   helperText?: string;
 }
 
@@ -55,7 +51,7 @@ export const Check = ({ resister, ...config }: CheckProps) => {
 export const Select = ({ resister, options }: SelectProps) => {
   return (
     <FormControl>
-      <S.SelectBox variant="outlined" {...resister}>
+      <S.SelectBox variant="outlined" defaultValue={options[0][0]} {...resister}>
         {options.map((option) => (
           <MenuItem key={option[0]} value={option[0]}>
             {option[1]}

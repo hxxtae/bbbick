@@ -2,11 +2,11 @@ import { useForm } from 'react-hook-form';
 
 import { Group, InputText, InputTextArea, Select, Title } from '@/components/form/Input';
 import { useAddProduct } from '@/hooks/product/useAddProduct';
+import { CategoryKey } from '@/interface/products';
 import { IProductForm } from '@/interface/form';
 import { BOOK_CATEGORY_1, BOOK_CATEGORY_2 } from '@/constants/product';
 import { Files } from '@/components/form/files';
 import * as S from './style';
-import { CategoryKey } from '@/interface/products';
 
 const ManageForm = Object.assign(Group, {
   Title,
@@ -20,8 +20,6 @@ export const ManageCreateForm = () => {
   const { isLoading, onSubmit } = useAddProduct();
   const selectData1 = Object.entries(BOOK_CATEGORY_1);
   const selectData2 = Object.entries(BOOK_CATEGORY_2[watch('category1') as CategoryKey ?? '010']);
-  console.log(selectData1)
-  console.log(selectData2)
   
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
@@ -43,7 +41,7 @@ export const ManageCreateForm = () => {
         <ManageForm>
           <ManageForm.Title title="카테고리(중분류)*" id="category2"/>
           <ManageForm.Select
-            options={selectData2 ?? []}
+            options={selectData2}
             resister={register("category2", {
               required: "필수입력란 입니다.",
               onChange(e) {
