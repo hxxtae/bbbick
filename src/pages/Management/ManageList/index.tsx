@@ -1,5 +1,4 @@
 import { useFetchProduct } from '@/hooks/product/useFetchProduct'
-
 import { BOOK_CATEGORY_1, BOOK_CATEGORY_2 } from '@/constants/product';
 import { useDelProduct } from '@/hooks/product/useDelProduct';
 import { numberFormat } from '@/utils/format';
@@ -7,6 +6,7 @@ import { CategoryKey } from '@/interface/products';
 import { ModalToggle } from '@/components/common/ModalToggle';
 import { Portal } from '@/components/common/Portal';
 import { ManageForm } from '../ManageForm';
+
 import * as S from './style';
 
 export const ManageList = () => {
