@@ -7,15 +7,16 @@ import { localStorageKeys } from '@/constants/keys';
 
 interface FilesProps {
   basePath: IFilePath;
+  initFiles?: IProductFiles[];
 }
 
-export const useFiles = ({ basePath = "images" }: FilesProps) => {
+export const useFiles = ({ basePath = "images", initFiles }: FilesProps) => {
   const local = JSON.parse(localStorage.getItem(localStorageKeys.files) ?? '[]') as IProductFiles[];
-  const [imageList, setImageList] = useState<IProductFiles[]>(local ?? []);
+  const [imageList, setImageList] = useState<IProductFiles[]>(initFiles ? [...initFiles] : local);
   const [imageLoading, setImageLoading] = useState<boolean>(true);
   // const imageListRef = ref(storage, `${basePath}/`);
 
-  const addFile = (e: React.ChangeEvent<HTMLInputElement & HTMLLabelElement>) => {
+  const addFile = async (e: React.ChangeEvent<HTMLInputElement & HTMLLabelElement>) => {
     const imageFiles = e.target.files;
     if (!imageFiles?.length) return;
     const imageFile = imageFiles[0];
@@ -34,7 +35,11 @@ export const useFiles = ({ basePath = "images" }: FilesProps) => {
     });
   }
 
-  const delFile = (filename: string) => {
+  const delFile = async (filename: string) => {
+    if (initFiles && imageList.length === 1) {
+      alert("마지막 이미지 입니다. (최소 1개 이미지 필요)");
+      return;
+    }
     setImageLoading(true);
     const imageRef = ref(storage, `${basePath}/${filename}`);
     deleteObject(imageRef).then(() => {
@@ -57,10 +62,15 @@ export const useFiles = ({ basePath = "images" }: FilesProps) => {
     //   });
     // });
 
-    if (!local) {
-      localStorage.setItem("bbbkick_image", JSON.stringify([]));
+
+    if (initFiles) {
+      localStorage.setItem(localStorageKeys.files, JSON.stringify(initFiles));
     }
     setImageLoading(false);
+
+    return () => {
+      localStorage.setItem(localStorageKeys.files, JSON.stringify([]));
+    }
   }, []);
 
   return {

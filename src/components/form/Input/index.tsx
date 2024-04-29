@@ -15,7 +15,7 @@ interface InputDefaultProps {
 }
 
 type InputProps = {
-  type: "text" | "email" | "password" | "number" | "file" | "textarea";
+  type: "text" | "email" | "password" | "number" | "file" | "textarea" | "date";
 } & ResisterProps & InputDefaultProps;
 
 interface CheckProps extends ResisterProps {
@@ -25,6 +25,7 @@ interface CheckProps extends ResisterProps {
 interface SelectProps extends ResisterProps {
   options: [string, string][];
   helperText?: string;
+  defaultValue?: string;
 }
 
 interface InputTitleProps {
@@ -48,10 +49,10 @@ export const Check = ({ resister, ...config }: CheckProps) => {
   return <S.CheckBox {...config} {...resister} />
 }
 
-export const Select = ({ resister, options }: SelectProps) => {
+export const Select = ({ resister, options, defaultValue }: SelectProps) => {
   return (
     <FormControl>
-      <S.SelectBox variant="outlined" defaultValue={options[0][0]} {...resister}>
+      <S.SelectBox variant="outlined" defaultValue={defaultValue ?? options[0][0]} {...resister}>
         {options.map((option) => (
           <MenuItem key={option[0]} value={option[0]}>
             {option[1]}

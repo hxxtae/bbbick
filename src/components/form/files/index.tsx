@@ -2,13 +2,15 @@ import { UseFormRegisterReturn } from 'react-hook-form';
 
 import { useFiles } from '@/hooks/form/useFiles';
 import * as S from './style';
+import { IProductFiles } from '@/interface/form';
 
 interface FileProps {
   register: UseFormRegisterReturn;
+  initFiles?: IProductFiles[];
 }
 
-export const Files = ({ register }: FileProps) => {
-  const { isLoading, fileList, addFile, delFile } = useFiles({ basePath: "images" });
+export const Files = ({ register, initFiles }: FileProps) => {
+  const { isLoading, fileList, addFile, delFile } = useFiles({ basePath: "images", initFiles });
 
   return (
     <S.Section>

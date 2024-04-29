@@ -1,13 +1,12 @@
 export type IRouterPaths =
   '/books' |
   '/best' |
-  '/recommand' |
-  '/e-books' |
+  '/like' |
+  '/ebooks' |
   '/cart' |
   '/mypage' |
   '/history' |
   '/management' |
-  '/category' |
   '/search' |
   '/signin' |
   '/signup' |
