@@ -9,8 +9,8 @@ export const SideNav = () => {
         <Nav.Head2 title="구매하기" />
         <Nav.Item name="북스" path="/books" />
         <Nav.Item name="베스트셀러" path="/best" />
-        <Nav.Item name="추천 북" path="/recommand" />
-        <Nav.Item name="e-북" path="/e-books" />
+        <Nav.Item name="추천 북" path="/like" />
+        <Nav.Item name="e-북" path="/ebooks" />
       </Nav>
       <Nav>
         <Nav.Head2 title="관리하기" />
@@ -21,7 +21,6 @@ export const SideNav = () => {
       <Nav>
         <Nav.Head2 title="관리자" />
         <Nav.Item name="상품 관리" path="/management" />
-        <Nav.Item name="카테고리 관리" path="/category" />
       </Nav>
       <Nav>
         <Nav.Head2 title="부가기능" />

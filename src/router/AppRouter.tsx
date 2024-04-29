@@ -23,10 +23,11 @@ export const AppRouter = () => {
           <Route path="/" element={<Home />} />
           <Route path="books" element={<PublicRouter><Books/></PublicRouter>} />
           <Route path="/best" />
-          <Route path="/recomends" />
-          <Route path="/cart" />
+          <Route path="/like" />
+          <Route path="/ebooks" />
           <Route path="/mypage" />
           <Route path="/history" />
+          <Route path="/cart" />
           <Route path="/management" element={<PrivateRouter><Management /></PrivateRouter>} />
           <Route path="/search" />
         </Route>

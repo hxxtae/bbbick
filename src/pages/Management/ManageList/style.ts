@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
-import { Box, Chip, Typography } from '@mui/material';
+import { Box, Button, Chip, Typography } from '@mui/material';
 
 export const Section = styled(Box)`
   height: 600px;
   overflow-y: scroll;
 
-  /* &::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     display: none;
-  } */
+  }
 `;
 
 export const List = styled.ul`
@@ -25,6 +25,7 @@ export const Item = styled(Box)`
   height: 200px;
   max-height: 200px;
   overflow: hidden;
+  gap: 10px;
 `;
 
 export const ImageBox = styled.div`
@@ -41,6 +42,7 @@ export const Image = styled.img`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1;
   padding: 0 20px;
   font-size: 14px;
 `;
@@ -59,6 +61,8 @@ export const Text = styled(Box)`
 export const ChipBox = styled.div`
   display: flex;
   justify-content: flex-start;
+  gap: 5px;
+  user-select: none;
 `;
 
 export const Chipe = styled(Chip)`
@@ -77,4 +81,19 @@ export const Sub2 = styled(Typography)`
   font-size: 11px;
   margin-left: 10px;
   vertical-align: middle;
+`;
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+`;
+
+export const UpdButton = styled(Button)`
+  font-size: 14px;
+`
+
+export const DelButton = styled(Button)`
+  font-size: 14px;
 `;

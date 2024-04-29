@@ -7,7 +7,6 @@ import {
 } from '@mui/material';
 import {
   AttachMoney,
-  Category,
   Favorite,
   ImportContacts,
   MenuBook,
@@ -77,10 +76,10 @@ export const Icon = ({ pathName }: IconProps) => {
     case '/best': {
       return <Star />
     }
-    case '/recommand': {
+    case '/like': {
       return <Favorite />
     }
-    case '/e-books': {
+    case '/ebooks': {
       return <ImportContacts />
       }
     case '/mypage': {
@@ -94,9 +93,6 @@ export const Icon = ({ pathName }: IconProps) => {
     }
     case '/management': {
       return <SettingsApplications />
-    }
-    case '/category': {
-      return <Category />
     }
     case '/search': {
       return <Search />
