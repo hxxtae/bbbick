@@ -7,6 +7,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.main`
-  height: calc(100vh - ${LAYOUT_OF_HEIGHT.header}px);
+  /* height: calc(100vh - ${LAYOUT_OF_HEIGHT.header}px); */
   display: flex;
 `

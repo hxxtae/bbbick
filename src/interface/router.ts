@@ -1,5 +1,4 @@
 export type IRouterPaths =
-  '/books' |
   '/best' |
   '/like' |
   '/ebooks' |

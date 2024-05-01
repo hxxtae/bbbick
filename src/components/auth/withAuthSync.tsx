@@ -2,7 +2,7 @@ import { createPortal } from 'react-dom';
 import { FunctionComponent } from 'react';
 
 import { useAuthSync } from '@/hooks/auth/useAuthSync';
-import { Loading } from '../common/Loading';
+import { LineLoading } from '../common/Loading';
 
 type wrappedProps = {
   [key: string]: string
@@ -17,7 +17,7 @@ export const withAuthSync = <T extends wrappedProps>(ViewComponent: withAuthSync
     return (
       <>
         {isLoading ?
-          createPortal(<Loading />, document.body, 'auth-loading') :
+          createPortal(<LineLoading />, document.body, 'auth-loading') :
           <ViewComponent {...props} />}
       </>
     )

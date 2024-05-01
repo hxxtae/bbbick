@@ -1,11 +1,12 @@
-import { db } from '@/service/firebaseApp';
 import { doc, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 import { INIT_PRODUCT_DATA } from '@/constants/product';
-import { IProductForm } from '@/interface/form';
 import { localStorageKeys } from '@/constants/keys';
+import { IProductForm } from '@/interface/form';
+import { db } from '@/service/firebaseApp';
+import { ProductType } from '@/interface/products';
 
 export const useSetProduct = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,15 +29,19 @@ export const useSetProduct = () => {
       minute: "2-digit",
       second: "2-digit",
     });
-    const createData: IProductForm = {
+    const createData: Omit<ProductType, "id"> = {
       ...data,
       productImg_url: [...files],
-      createAt: submitDate
+      saleRate: 0,
+      like: 0,
+      createAt: submitDate,
+      updateAt: null
     }
-    const updateData: IProductForm = {
+    const updateData: Omit<ProductType, "like" | "saleRate" | "id"> = {
       ...data,
       productImg_url: [...files],
-      updateAt: submitDate
+      updateAt: submitDate,
+      createAt: null
     }
     const formData = id ? updateData : createData;
     try {

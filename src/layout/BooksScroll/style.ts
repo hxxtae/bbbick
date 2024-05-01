@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
-import { Box, Button, Chip, Typography } from '@mui/material';
+import { Box, Chip, Typography } from '@mui/material';
 
-export const Section = styled(Box)`
-  overflow-y: scroll;
+export const BtnGroup = styled.div`
+  display: flex;
+  gap: 10px;
+`;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+export const SubTitle = styled(Typography)`
+  font-size: 18px;
+  flex: 1;
 `;
 
 export const List = styled.ul`
@@ -21,13 +23,17 @@ export const List = styled.ul`
 export const Item = styled(Box)`
   display: flex;
   flex-shrink: 0;
-  height: 200px;
-  max-height: 200px;
-  overflow: hidden;
+  height: 220px;
+  max-height: 220px;
   gap: 10px;
 `;
 
 export const ImageBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ImageWrapper = styled.div`
   overflow: hidden;
 `;
 
@@ -38,10 +44,22 @@ export const Image = styled.img`
   object-fit: cover;
 `;
 
+export const ImageBottom = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin: auto 0;
+  border-radius: 4px;
+`;
+
+export const Like = styled(Typography)`
+  
+`;
+
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
   padding: 0 20px;
   font-size: 14px;
 `;
@@ -51,6 +69,10 @@ export const Title = styled.h2`
   font-weight: 600;
   margin: 0;
   margin-bottom: 10px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const Text = styled(Box)`
@@ -82,17 +104,3 @@ export const Sub2 = styled(Typography)`
   vertical-align: middle;
 `;
 
-export const ButtonGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-`;
-
-export const UpdButton = styled(Button)`
-  font-size: 14px;
-`
-
-export const DelButton = styled(Button)`
-  font-size: 14px;
-`;

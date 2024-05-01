@@ -1,5 +1,7 @@
 import { IProductForm } from './form';
 
+export type BooksKinds = 'recent' | 'best' | 'like';
+export type OrderKinds = 'date' | 'price';
 export type CategoryKey = "010" | "020" | "030" | "040";
 export type CategoryKind1 = "경제 경영" | "자기계발" | "에세이" | "IT모바일";
 export type CategoryKind2 =
@@ -10,6 +12,10 @@ export type CategoryKind2 =
 
 export interface ProductType extends IProductForm {
   id: string;
+  like: number | null;
+  saleRate: number | null;
+  createAt: string | null;
+  updateAt: string | null;
 }
 
 export interface Category1Type {
