@@ -25,7 +25,7 @@ export const BooksScroll = ({ title, category }: BooksProps) => {
         <S.Item key={item.id} >
           <S.ImageBox>
             <S.ImageWrapper>
-              <Link to={`/books/${item.id}`}>
+              <Link to={`/books/${item.id}`} state={item}>
                 <S.Image src={item.productImg_url[0].url} style={{ width: "125px" }} />
               </Link>
             </S.ImageWrapper>
@@ -35,7 +35,7 @@ export const BooksScroll = ({ title, category }: BooksProps) => {
             </S.ImageBottom>
           </S.ImageBox>
           <S.Content>
-            <Link to={`/books/${item.id}`}>
+            <Link to={`/books/${item.id}`} state={item}>
               <S.Title>{item.name}</S.Title>
             </Link>
             <S.Text>

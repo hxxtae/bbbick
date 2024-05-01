@@ -42,7 +42,7 @@ const lightPalette = {
   },
   success: {
     main: '#13BD74',
-    sub: '#96E4C5'
+    sub: '#23D387'
   },
   border: {
     main: '#E2E3E6',
@@ -71,7 +71,7 @@ const darkPalette = {
   },
   success: {
     main: '#13BD74',
-    sub: '#96E4C5'
+    sub: '#23D387'
   },
   border: {
     main: '#3F3F3F'
