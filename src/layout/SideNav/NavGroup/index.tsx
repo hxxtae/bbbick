@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   List,
   ListItem,
@@ -52,9 +52,11 @@ export const Head2 = ({ title }: HeadProps) => {
 }
 
 export const Item = ({ name, path }: LinkProps) => {
+  const { pathname } = useLocation()
+
   return (
     <Link to={path}>
-      <ListItem sx={{ padding: 0, fontSize: "14px" }}>
+      <ListItem sx={{ padding: 0, fontSize: "14px", bgcolor: path === pathname ? "border.main" : null }}>
         <ListItemButton sx={{ p: 0, pl: "20px", pt: "5px", pb: "5px", fontSize: "14px" }}>
           <S.IconBox>
             <Icon pathName={path} />
@@ -70,7 +72,7 @@ export const Item = ({ name, path }: LinkProps) => {
 
 export const Icon = ({ pathName }: IconProps) => {
   switch (pathName) {
-    case '/books': {
+    case '/': {
       return <MenuBook />
     }
     case '/best': {
