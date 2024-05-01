@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { Box, Button, Chip, Typography } from '@mui/material';
 
 export const Section = styled(Box)`
-  height: 600px;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
