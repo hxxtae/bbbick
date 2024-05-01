@@ -13,5 +13,6 @@ export const PrivateRouter = ({ children }: PropsWithChildren) => {
   }
 
   // NOTE: 인증(판매자) 정보가 없는 경우 라우터 처리
+  alert("관리자만 접근 가능합니다.")
   return <Navigate to={"/"} replace state={{...locate}} />
 }
