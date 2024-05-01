@@ -1,8 +1,9 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
 
 import { useFiles } from '@/hooks/form/useFiles';
-import * as S from './style';
 import { IProductFiles } from '@/interface/form';
+import { CycleLoading } from '@/components/common/Loading';
+import * as S from './style';
 
 interface FileProps {
   register: UseFormRegisterReturn;
@@ -15,7 +16,7 @@ export const Files = ({ register, initFiles }: FileProps) => {
   return (
     <S.Section>
       <S.ImageSection sx={{ borderColor: "error.main", border: 1, borderRadius: 1.5 }}>
-        {isLoading ? "Loading..." : fileList?.map(({ filename, url }) => (
+        {isLoading ? <CycleLoading /> : fileList?.map(({ filename, url }) => (
           <S.ImageBox key={filename}>
             <S.Del onClick={() => delFile(filename)}>X</S.Del>
             <S.Image alt="upload image" src={url} />
