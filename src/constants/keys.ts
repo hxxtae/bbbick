@@ -4,6 +4,10 @@ export const localStorageKeys = {
 }
 
 export const queryKeys = {
+  auth: {
+    all: ['/auth'] as const,
+    cart: () => [...queryKeys.auth.all, '/cart'] as const,
+  },
   product: {
     all: ['/product'] as const,
     basic: (page: number) => [...queryKeys.product.all, `${page}`] as const,
