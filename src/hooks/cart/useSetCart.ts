@@ -39,24 +39,24 @@ export const useSetCart = () => {
     } as CartType;
     
     try {
-      await setDoc(doc(db, "auth", authId), {
+      await setDoc(doc(db, "cart", authId), {
         authCart: arrayUnion(cardData)
       }, { merge: true }); // 기존 데이터 형식을 유지하며, 업데이트 진행
     } catch (error) {
-      console.error("[Error]: Product Add Error: ", error)
+      console.error("[Error]: Add Cart DB Error: ", error)
     }
   }
 
   // Middle
   const { isLoading, mutate } = useMutation((data: ProductType) => setCartStore(data), {
-    mutationKey: queryKeys.auth.cart(),
+    mutationKey: queryKeys.cart.all,
     onSuccess: () => {
       alert("장바구니에 추가되었습니다.");
       // 장바구니 데이터 최신화 (캐시 데이터 최신화)
-      queryClient.invalidateQueries(queryKeys.auth.cart())
+      queryClient.invalidateQueries(queryKeys.cart.all)
     },
     onError: (error: any) => {
-      console.error("[Error]: ", error)
+      console.error("[Error] Add Cart Error: ", error)
     }
   })
 

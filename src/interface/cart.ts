@@ -13,3 +13,6 @@ export interface CartType {
   saleRate: number | null;
 }
 
+export interface ICart {
+  authCart: CartType[];
+}

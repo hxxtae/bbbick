@@ -55,7 +55,7 @@ export const useFetchProduct = (category: BooksKinds) => {
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: queryKeys.product.category(category),
     queryFn: getProducts,
-    staleTime: 1000 * 60 * 3, // 3분
+    staleTime: 1000 * 60 * 5, // 5분
     cacheTime: 1000 * 60 * 10, // 10분,
     refetchOnWindowFocus: false,
     retry: false,

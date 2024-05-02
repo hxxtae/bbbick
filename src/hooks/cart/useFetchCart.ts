@@ -1,5 +1,5 @@
 import { queryKeys } from '@/constants/keys'
-import { IAuth } from '@/interface/auth';
+import { ICart } from '@/interface/cart';
 import { db } from '@/service/firebaseApp';
 import { useAuthStore } from '@/store/useAuthStore';
 import { doc, getDoc } from 'firebase/firestore';
@@ -10,20 +10,19 @@ export const useFetchCart = () => {
   
   const getStorageOfCart = async () => {
     if (!auth?.uid) {
-      alert("로그인 후 다시 시도해주세요.");
       return;
     }
 
     try {
-      const post = await getDoc(doc(db, "auth", auth.uid));
-      return post.data() as IAuth;
+      const post = await getDoc(doc(db, "cart", auth.uid));
+      return post.data() as ICart;
     } catch (error) {
       console.error("[ERROR]: ", error)
     }
   }
 
   const { isLoading, data } = useQuery({
-    queryKey: queryKeys.auth.cart(),
+    queryKey: queryKeys.cart.all,
     queryFn: getStorageOfCart,
     staleTime: 1000 * 60 * 10, // 10분
     cacheTime: 1000 * 60 * 10, // 10분
