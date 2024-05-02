@@ -1,7 +1,10 @@
+import { useFetchCart } from '@/hooks/cart/useFetchCart';
 import { Nav } from './NavGroup';
 import * as S from './style';
 
 export const SideNav = () => {
+  const { data } = useFetchCart();
+  
   return (
     <S.Wrapper sx={{ bgColor: "bg.card" }}>
       <Nav>
@@ -16,7 +19,7 @@ export const SideNav = () => {
         <Nav.Head2 title="관리하기" />
         <Nav.Item name="마이페이지" path="/mypage" />
         <Nav.Item name="구매 내역" path="/history" />
-        <Nav.Item name="장바구니" path="/cart" />
+        <Nav.Item name="장바구니" path="/cart" badgeContent={data?.authCart.length} />
       </Nav>
       <Nav>
         <Nav.Head2 title="관리자" />
