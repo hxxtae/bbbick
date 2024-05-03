@@ -5,6 +5,10 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 14px;
   }
 
+  .css-p51h6s-MuiInputBase-input-MuiOutlinedInput-input {
+    font-size: 14px;
+  }
+
   body {
     margin: 0;
     padding: 0;

@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
+  Badge,
   List,
   ListItem,
   ListItemButton
@@ -17,7 +18,7 @@ import {
   Star
 } from '@mui/icons-material';
 import * as S from './style';
-import { HeadProps, IconProps, LinkProps } from '@/interface/nav';
+import { BadgeBoxProps, HeadProps, IconProps, LinkProps } from '@/interface/nav';
 
 export const Container = ({ children }: PropsWithChildren) => {
   return (
@@ -51,7 +52,7 @@ export const Head2 = ({ title }: HeadProps) => {
   )
 }
 
-export const Item = ({ name, path }: LinkProps) => {
+export const Item = ({ name, path, badgeContent }: LinkProps) => {
   const { pathname } = useLocation()
 
   return (
@@ -59,7 +60,9 @@ export const Item = ({ name, path }: LinkProps) => {
       <ListItem sx={{ padding: 0, fontSize: "14px", bgcolor: path === pathname ? "border.main" : null }}>
         <ListItemButton sx={{ p: 0, pl: "20px", pt: "5px", pb: "5px", fontSize: "14px" }}>
           <S.IconBox>
-            <Icon pathName={path} />
+            <BadgeBox badgeContent={badgeContent}>
+              <Icon pathName={path} />
+            </BadgeBox>
           </S.IconBox>
           <S.Text sx={{ fontSize: 14, fontWeight: 600, color: 'text.main'}}>
             {name}
@@ -103,7 +106,14 @@ export const Icon = ({ pathName }: IconProps) => {
       break;
     }
   }
+}
 
+export const BadgeBox = ({ children, badgeContent = 0 }: BadgeBoxProps) => {
+  return (
+    <Badge badgeContent={badgeContent} color="primary">
+      {children}
+    </Badge>
+  )
 }
 
 export const Nav = Object.assign(Container, {

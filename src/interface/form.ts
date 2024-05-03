@@ -35,3 +35,7 @@ export interface IProductForm {
 }
 
 export type IFilePath = "images";
+
+export interface CartQuantityForm {
+  newQuantity: number;
+}

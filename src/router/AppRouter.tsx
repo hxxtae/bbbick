@@ -4,27 +4,30 @@ import {
   Route,
 } from "react-router-dom";
 
+import { withAuthSync } from '@/components/auth/withAuthSync';
+import { ScrollToTop } from '@/components/common/ScrollToTop';
+import { PublicRouter } from './PublicRouter';
+import { PrivateRouter } from './PrivateRouter';
+import { NotFound } from '@/components/common/NotFound';
+import { StoreLayout } from '@/layout/StoreLayout';
+import { ProductDetail } from '@/pages/ProductDetail';
+import { Management } from '@/pages/Management';
 import { Signin } from '@/pages/Signin';
 import { Signup } from '@/pages/Signup';
-import { NotFound } from '@/components/common/NotFound';
 import { Home } from '@/pages/Home';
-import { StoreLayout } from '@/layout/StoreLayout';
-import { PublicRouter } from './PublicRouter';
-import { Management } from '@/pages/Management';
-import { PrivateRouter } from './PrivateRouter';
-import { withAuthSync } from '@/components/auth/withAuthSync';
 import { MyPage } from '@/pages/MyPage';
-import { ProductDetail } from '@/pages/ProductDetail';
 import { Best } from '@/pages/Best';
 import { Like } from '@/pages/Like';
+import { Cart } from '@/pages/Cart';
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<StoreLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/books/:bookid" element={<ProductDetail/>} />
+          <Route path="/recent/:bookid" element={<ProductDetail/>} />
           <Route path="/best" element={<Best />} />
           <Route path="/best/:bookid" element={<ProductDetail/>} />
           <Route path="/like" element={<Like />} />
@@ -32,7 +35,7 @@ export const AppRouter = () => {
           <Route path="/ebooks" />
           <Route path="/mypage" element={<PublicRouter><MyPage/></PublicRouter>}/>
           <Route path="/history" />
-          <Route path="/cart" />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/management" element={<PrivateRouter><Management /></PrivateRouter>} />
           <Route path="/search" />
         </Route>

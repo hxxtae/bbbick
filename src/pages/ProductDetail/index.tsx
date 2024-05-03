@@ -1,14 +1,27 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Favorite } from '@mui/icons-material';
 
 import { BOOK_CATEGORY_1, BOOK_CATEGORY_2 } from '@/constants/product';
-import { numberFormat } from '@/utils/format';
 import { CategoryKey } from '@/interface/products';
+import { useFetchCart } from '@/hooks/cart/useFetchCart';
+import { useSetCart } from '@/hooks/cart/useSetCart';
+import { numberFormat } from '@/utils/format';
 import { Books } from '@/layout/Books';
 import * as S from './style';
 
 export const ProductDetail = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
+  const { onAddCart } = useSetCart();
+  const { getCartItem } = useFetchCart();
+
+  const cartAddHandler = () => {
+    if (getCartItem(state.id)) {
+      navigate("/cart");
+      return;
+    }
+    onAddCart(state)
+  }
 
   return (
     <S.Section sx={{ bgcolor: "bg.card" }}>
@@ -50,12 +63,11 @@ export const ProductDetail = () => {
               </S.PriceWrapper>
             </S.InfoBox>
             <S.ButtonGroup>
-              <S.AddCart variant="contained" >카트에 넣기</S.AddCart>
-              <S.BuyNow variant="contained">바로구매</S.BuyNow>
+              <S.AddCart variant="contained" onClick={cartAddHandler}> {getCartItem(state.id) ? "장바구니 보기" : "장바구니 넣기"} </S.AddCart>
+              <S.BuyNow variant="contained"> 바로구매 </S.BuyNow>
             </S.ButtonGroup>
           </S.Right>
         </S.Wrapper>
-        
       </S.Block>
 
       <S.Block sx={{ bgcolor: "bg.main", mt: "20px" }}>
