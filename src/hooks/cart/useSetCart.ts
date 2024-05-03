@@ -23,24 +23,25 @@ export const useSetCart = () => {
       return;
     }
     const authId = auth.uid;
-    const cardData = {
+    const cartData = {
       id: bookData.id,
       name: bookData.name,
-      discountRate: bookData.discountRate,
-      like: bookData.like,
-      price: bookData.price,
+      discountRate: Number(bookData.discountRate),
+      like: Number(bookData.like),
+      price: Number(bookData.price),
       productImg_url: bookData.productImg_url[0].url,
       publishDate: bookData.publishDate,
       publisher: bookData.publisher,
-      quantity: bookData.quantity,
-      regularPrice: bookData.regularPrice,
-      saleRate: bookData.saleRate,
+      quantity: Number(bookData.quantity),
+      cartQuantity: 1,
+      regularPrice: Number(bookData.regularPrice),
+      saleRate: Number(bookData.saleRate),
       writer: bookData.writer
     } as CartType;
     
     try {
       await setDoc(doc(db, "cart", authId), {
-        authCart: arrayUnion(cardData)
+        authCart: arrayUnion(cartData)
       }, { merge: true }); // 기존 데이터 형식을 유지하며, 업데이트 진행
     } catch (error) {
       console.error("[Error]: Add Cart DB Error: ", error)

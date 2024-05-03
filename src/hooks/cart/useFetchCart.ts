@@ -24,10 +24,9 @@ export const useFetchCart = () => {
   const { isLoading, data } = useQuery({
     queryKey: queryKeys.cart.all,
     queryFn: getStorageOfCart,
-    staleTime: 1000 * 60 * 10, // 10분
-    cacheTime: 1000 * 60 * 10, // 10분
     refetchOnWindowFocus: false,
     retry: false,
+    refetchOnMount: true,
   });
 
   const getCartItem = (bookId: string) => {

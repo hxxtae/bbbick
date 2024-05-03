@@ -5,6 +5,7 @@ export interface CartType {
   regularPrice: number;
   discountRate: number;
   quantity: number;
+  cartQuantity: number;
   writer: string;
   productImg_url: string;
   publisher: string | null;
