@@ -52,7 +52,6 @@ export const useSetCart = () => {
   const { isLoading, mutate } = useMutation((data: ProductType) => setCartStore(data), {
     mutationKey: queryKeys.cart.all,
     onSuccess: () => {
-      alert("장바구니에 추가되었습니다.");
       // 장바구니 데이터 최신화 (캐시 데이터 최신화)
       queryClient.invalidateQueries(queryKeys.cart.all)
     },

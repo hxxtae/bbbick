@@ -36,7 +36,7 @@ export const ProductDetail = () => {
 
           <S.Right>
             <S.InfoBox>
-              <S.Title>[도서] {state.name}</S.Title>
+              <S.Title>[도서]&nbsp;{state.name}</S.Title>
               <S.Row>
                 <S.Text>{state.writer}</S.Text>|
                 <S.Text>{state.publisher}</S.Text>|
@@ -64,8 +64,8 @@ export const ProductDetail = () => {
               </S.PriceWrapper>
             </S.InfoBox>
             <S.ButtonGroup>
-              <S.AddCart variant="contained" onClick={() => cartAddHandler(false)}> {getCartItem(state.id) ? "장바구니 보기" : "장바구니 넣기"} </S.AddCart>
-              <S.BuyNow variant="contained" onClick={() => cartAddHandler(true)}> 바로구매 </S.BuyNow>
+              <S.AddCart variant="contained" onClick={() => cartAddHandler(false)}>{getCartItem(state.id) ? "장바구니 보기" : "장바구니 넣기"}</S.AddCart>
+              <S.BuyNow variant="contained" onClick={() => cartAddHandler(true)}>바로구매</S.BuyNow>
             </S.ButtonGroup>
           </S.Right>
         </S.Wrapper>
