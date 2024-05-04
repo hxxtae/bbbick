@@ -27,10 +27,18 @@ export const useFetchCart = () => {
     refetchOnWindowFocus: false,
     retry: false,
     refetchOnMount: true,
+    select: (cartData?: ICart) => {
+      if (cartData?.authCart.length) {
+        const carts = [...cartData.authCart];
+        carts.sort((a, b) => Number(a.id) - Number(b.id));
+        return carts;
+      }
+      return cartData?.authCart
+    }
   });
 
   const getCartItem = (bookId: string) => {
-    const confirm = data?.authCart.some((item) => item.id === bookId);
+    const confirm = data?.some((item) => item.id === bookId);
     return confirm;
   }
 

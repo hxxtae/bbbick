@@ -1,6 +1,7 @@
 import { Paper, TableContainer } from '@mui/material';
 import { useFetchCart } from '@/hooks/cart/useFetchCart';
 import { CartItem } from './CartItem';
+import { CartPayment } from './CartPayment';
 import * as S from './style';
 
 export const Cart = () => {
@@ -21,13 +22,14 @@ export const Cart = () => {
               </S.TableRow_>
             </S.TableHead_>
             <S.TableBody_>
-              {data?.authCart.map((row) => (
-                <CartItem key={row.id} data={row} />
+              {data?.map((cart) => (
+                <CartItem key={cart.id} data={cart} />
               ))}
             </S.TableBody_>
           </S.Table_>
         </TableContainer>
       </S.Block>
+      <CartPayment carts={data} />
     </S.Section>
   )
 }

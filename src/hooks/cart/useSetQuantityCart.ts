@@ -1,12 +1,15 @@
 import { arrayRemove, arrayUnion, doc, setDoc } from 'firebase/firestore';
 import { useMutation, useQueryClient } from 'react-query';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { useAuthStore } from '@/store/useAuthStore';
 import { CartQuantityForm } from '@/interface/form';
 import { queryKeys } from '@/constants/keys';
 import { CartType } from '@/interface/cart';
 import { db } from '@/service/firebaseApp';
+
+const MAX_QUANTITY = 9999;
+const MIN_QUANTITY = 1;
 
 interface useSetQuantityCartProps {
   data: CartType;
@@ -18,20 +21,20 @@ export const useSetQuantityCart = ({ data }: useSetQuantityCartProps) => {
   const queryClient = useQueryClient();
 
   // -----------------------
-  // 장바구니 상품 수량 변경
+  // 장바구니 상품 수량 변경 API
   // -----------------------
-  const setQuantity = async ({ newQuantity = 0 }: CartQuantityForm) => {
+  const setQuantityAPI = async ({ newQuantity = 0 }: CartQuantityForm) => {
     if (!auth?.uid) {
       alert("로그인 후 다시 시도해주세요.");
       return;
     }
     if (newQuantity === undefined || newQuantity === null) return;
-    if (newQuantity <= 0) {
-      alert("상품 수량은 1개 이상을 입력하여 주세요.");
+    if (newQuantity < MIN_QUANTITY) {
+      alert(`상품 수량은 ${MIN_QUANTITY}개 이상을 입력해주세요.`);
       return;
     }
-    if (newQuantity > data.quantity) {
-      alert("상품 재고가 선택한 수량보다 부족합니다.");
+    if (newQuantity > MAX_QUANTITY) {
+      alert(`상품 수량은 ${MAX_QUANTITY}개 이하로 입력해주세요.`);
       return;
     }
     if (newQuantity == prevQuantity) {
@@ -69,9 +72,9 @@ export const useSetQuantityCart = ({ data }: useSetQuantityCartProps) => {
   }
 
   // -----------------------
-  // 장바구니 상품 제거
+  // 장바구니 상품 제거 API
   // -----------------------
-  const removeCart = async (bookId: string) => {
+  const removeCartAPI = async (bookId: string) => {
     if (!auth?.uid) {
       alert("로그인 후 다시 시도해주세요.");
       return;
@@ -93,9 +96,26 @@ export const useSetQuantityCart = ({ data }: useSetQuantityCartProps) => {
   }
 
   // -----------------------
-  // 장바구니 상품 제거 (react query)
+  // 장바구니 상품 수량 변경 Mutate
   // -----------------------
-  const { isLoading, mutate } = useMutation((bookId: string) => removeCart(bookId), {
+  const { isLoading: loadQuantity, mutate: setQuantity } = useMutation((newQuantity: number) => setQuantityAPI({ newQuantity }), {
+    mutationKey: queryKeys.cart.all,
+    onSuccess: () => {
+      queryClient.invalidateQueries(queryKeys.cart.all);
+    },
+    onError: (error) => {
+      console.error("[Error]: Set Quantity of Cart Error: ", error);
+    }
+  });
+
+  const setQuantitySubmit = ({ newQuantity = 0 }: CartQuantityForm) => {
+    setQuantity(newQuantity)
+  }
+
+  // -----------------------
+  // 장바구니 상품 제거 Mutate
+  // -----------------------
+  const { isLoading: removeLoading, mutate: removeCart } = useMutation((bookId: string) => removeCartAPI(bookId), {
     mutationKey: queryKeys.cart.all,
     onSuccess: () => {
       queryClient.invalidateQueries(queryKeys.cart.all);
@@ -105,11 +125,10 @@ export const useSetQuantityCart = ({ data }: useSetQuantityCartProps) => {
     }
   })
 
-  useEffect(() => {
-    return () => {
-      queryClient.invalidateQueries(queryKeys.cart.all);
-    }
-  }, [queryClient])
-
-  return { setQuantity, removeLoading: isLoading, removeCart: mutate  }
+  return {
+    loadQuantity,
+    setQuantity: setQuantitySubmit,
+    removeLoading,
+    removeCart
+  }
 }
