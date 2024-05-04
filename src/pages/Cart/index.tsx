@@ -3,9 +3,11 @@ import { useFetchCart } from '@/hooks/cart/useFetchCart';
 import { CartItem } from './CartItem';
 import { CartPayment } from './CartPayment';
 import * as S from './style';
+import { useAuthStore } from '@/store/useAuthStore';
 
 export const Cart = () => {
-  const { data } = useFetchCart();
+  const { data, getCartTotalPay, getCartTotalQuantity } = useFetchCart();
+  const auth = useAuthStore((state) => state.auth);
   
   return (
     <S.Section sx={{ bgcolor: "bg.card"}}>
@@ -29,7 +31,12 @@ export const Cart = () => {
           </S.Table_>
         </TableContainer>
       </S.Block>
-      <CartPayment carts={data} />
+      <CartPayment
+        authId={auth?.uid || null}
+        carts={data}
+        totalPrice={getCartTotalPay("price")}
+        totalRegular={getCartTotalPay("regularPrice")}
+        totalQuantity={getCartTotalQuantity()} />
     </S.Section>
   )
 }
