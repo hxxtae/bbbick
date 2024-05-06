@@ -5,7 +5,13 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 14px;
   }
 
+  /* Dark */
   .css-p51h6s-MuiInputBase-input-MuiOutlinedInput-input {
+    font-size: 14px;
+  }
+
+  /* Light */
+  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
     font-size: 14px;
   }
 
