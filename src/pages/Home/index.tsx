@@ -7,8 +7,11 @@ export const Home = () => {
   return (
     <S.Section sx={{ bgcolor: "bg.card" }}>
       <S.Block sx={{ bgcolor: "bg.main", mb: "20px" }}>
-        <S.Title sx={{ fontWeight: 600 }}>BBBick</S.Title>
-        <S.Desc sx={{ color: "text.main" }}>쉽게 책을 접하고 구매할 수 있는 곳. 온라인 북 스토어 bbbick(book,book,pick) 입니다.</S.Desc>
+        <S.Title sx={{ fontWeight: 600 }}>BBBick Book Store</S.Title>
+        <S.Desc sx={{ color: "text.main" }}>
+          오늘도 방문해주셔서 감사합니다.&nbsp;<br />
+          온라인으로 책을 고르고 구매할 수 있는 온라인 북 스토어 '비비빅(BBBick)'입니다.
+        </S.Desc>
         <Link to={"/best"}>
           <S.GoButton variant="contained" sx={{ mr: "10px" }}>베스트셀러</S.GoButton>
         </Link>

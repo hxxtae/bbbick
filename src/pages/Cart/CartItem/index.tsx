@@ -13,7 +13,7 @@ interface CartItemProps {
 
 export const CartItem = ({ data }: CartItemProps) => {
   const { register, handleSubmit } = useForm<CartQuantityForm>()
-  const { setQuantity, removeLoading, removeCart } = useSetQuantityCart({ data });
+  const { loadQuantity, setQuantity, removeLoading, removeCart } = useSetQuantityCart({ data });
 
   return (
     <>
@@ -35,13 +35,13 @@ export const CartItem = ({ data }: CartItemProps) => {
         <S.TableCell_ align="center" sx={{ width: 120 }}>
           <S.Form onSubmit={handleSubmit(setQuantity)}>
             <InputText type="number" resister={register("newQuantity", {
-              value: data.cartQuantity
+              value: data.cartQuantity,
             })} />
-            <S.Submit type="submit" variant="contained" sx={{ width: 1 }}>변경</S.Submit>
+            <S.Submit type="submit" variant="contained" disabled={loadQuantity} sx={{ width: 1 }}>변경</S.Submit>
           </S.Form>
         </S.TableCell_>
         {/* 가격 */}
-        <S.TableCell_ align="right">{numberFormat(data.price)}<S.Sub1>원</S.Sub1></S.TableCell_>
+        <S.TableCell_ align="right">{numberFormat(data.price * data.cartQuantity)}<S.Sub1>원</S.Sub1></S.TableCell_>
         {/* 제어 */}
         <S.TableCell_ align="right">
           <S.Remove

@@ -16,4 +16,7 @@ export const queryKeys = {
     category: (category: string) => [...queryKeys.product.all, `/${category}`] as const,
     categoryScroll: (category: string, limit?: number) => [...queryKeys.product.all, `/${category}`, `/${limit}`] as const,
   },
+  order: {
+    all: ['/order'] as const,
+  }
 }

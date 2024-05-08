@@ -19,7 +19,7 @@ export const SideNav = () => {
         <Nav.Head2 title="관리하기" />
         <Nav.Item name="마이페이지" path="/mypage" />
         <Nav.Item name="구매 내역" path="/history" />
-        <Nav.Item name="장바구니" path="/cart" badgeContent={data?.authCart.length} />
+        <Nav.Item name="장바구니" path="/cart" badgeContent={data?.length ?? 0} />
       </Nav>
       <Nav>
         <Nav.Head2 title="관리자" />
