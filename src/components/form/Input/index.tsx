@@ -12,6 +12,7 @@ interface InputDefaultProps {
   title?: string;
   id?: string;
   helperText?: string;
+  readOnly?: boolean;
 }
 
 type InputProps = {
@@ -34,7 +35,7 @@ interface InputTitleProps {
 }
 
 export const InputText = ({ resister, ...config }: InputProps) => {
-  return <S.Input variant="outlined" label={config.title} autoComplete='off' error={!!config.helperText} {...config} {...resister} />
+  return <S.Input variant="outlined" label={config.title} autoComplete='off' error={!!config.helperText} {...config} {...resister} inputProps={{ readOnly: config.readOnly || false }} />
 }
 
 export const InputPassword = ({ resister, ...config }: InputProps) => {

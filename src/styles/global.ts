@@ -15,6 +15,25 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 14px;
   }
 
+  /* Scroll_width */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Scroll_Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 4px;
+  }
+  /* Scroll_Handle */
+  ::-webkit-scrollbar-thumb {
+    /* background: rgba(226, 227, 230, 1); */
+    background: rgba(191, 198, 208, .8);
+    border-radius: 4px 0 0 4px;
+  }
+
+
+
+
   body {
     margin: 0;
     padding: 0;

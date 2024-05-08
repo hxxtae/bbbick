@@ -7,6 +7,7 @@ import { CartQuantityForm } from '@/interface/form';
 import { queryKeys } from '@/constants/keys';
 import { CartType } from '@/interface/cart';
 import { db } from '@/service/firebaseApp';
+import { FirebaseError } from 'firebase/app';
 
 const MAX_QUANTITY = 9999;
 const MIN_QUANTITY = 1;
@@ -67,7 +68,11 @@ export const useSetQuantityCart = ({ data }: useSetQuantityCartProps) => {
       }, { merge: true });
       setPrevQuantity(Number(newQuantity));
     } catch (error) {
-      console.error("[Error]: Add Cart DB Error: ", error);
+      if (error instanceof FirebaseError) {
+        console.error("[Error]: Add Cart DB Error: ", error.message);
+      } else {
+        console.error("[Error]: Add Cart DB Error: ", error);
+      }
     }
   }
 
@@ -91,7 +96,11 @@ export const useSetQuantityCart = ({ data }: useSetQuantityCartProps) => {
         authCart: arrayRemove(data)
       }, { merge: true });
     } catch (error) {
-      console.error("[Error]: Remove Cart DB Error: ", error);
+      if (error instanceof FirebaseError) {
+        console.error("[Error]: Remove Cart DB Error: ", error.message);
+      } else {
+        console.error("[Error]: Remove Cart DB Error: ", error);
+      }
     }
   }
 
@@ -107,8 +116,9 @@ export const useSetQuantityCart = ({ data }: useSetQuantityCartProps) => {
       console.error("[Error]: Set Quantity of Cart Error: ", error);
     }
   });
-
+  // 상품 수량 변경 Submit 함수
   const setQuantitySubmit = ({ newQuantity = 0 }: CartQuantityForm) => {
+    if (loadQuantity) return;
     setQuantity(newQuantity)
   }
 
