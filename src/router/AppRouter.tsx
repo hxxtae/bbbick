@@ -19,6 +19,8 @@ import { MyPage } from '@/pages/MyPage';
 import { Best } from '@/pages/Best';
 import { Like } from '@/pages/Like';
 import { Cart } from '@/pages/Cart';
+import { History } from '@/pages/History';
+import Order from '@/pages/Order';
 
 export const AppRouter = () => {
   return (
@@ -34,8 +36,9 @@ export const AppRouter = () => {
           <Route path="/like/:bookid" element={<ProductDetail/>} />
           <Route path="/ebooks" />
           <Route path="/mypage" element={<PublicRouter><MyPage/></PublicRouter>}/>
-          <Route path="/history" />
+          <Route path="/history" element={<History/>} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/cart/order" element={<Order orderState={{}} />} />
           <Route path="/management" element={<PrivateRouter><Management /></PrivateRouter>} />
           <Route path="/search" />
         </Route>

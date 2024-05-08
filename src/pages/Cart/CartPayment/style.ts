@@ -1,6 +1,6 @@
 import { styled as style } from '@mui/system';
 import styled from '@emotion/styled';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Paper, Typography } from '@mui/material';
 
 export const Block = styled(Box)`
   display: flex;
@@ -24,7 +24,7 @@ export const InfoWrapper = styled(Box)`
   /* margin-bottom: 20px; */
 `;
 
-export const InfoContent = styled(Box)`
+export const InfoContent = styled(Paper)`
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -71,6 +71,5 @@ export const PrevButton = style(Button)(() => ({
   backgroundColor: "#ffffff",
   ":hover": {
     backgroundColor: "#E6EBFF",
-    
   },
 }));
