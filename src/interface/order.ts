@@ -19,3 +19,5 @@ export type StepType = {
   name: string;
   desc: string;
 }
+
+export type IHistory = CartType & Omit<IOrder, "orderCarts">

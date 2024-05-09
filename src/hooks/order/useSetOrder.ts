@@ -4,7 +4,7 @@ import { useMutation } from 'react-query';
 import { useAuthStore } from '@/store/useAuthStore';
 import { FirebaseError } from 'firebase/app';
 import { queryKeys } from '@/constants/keys';
-import { IOrder } from '@/interface/order';
+import { IHistory, IOrder } from '@/interface/order';
 import { db } from '@/service/firebaseApp';
 
 export const useSetOrder = () => {
@@ -18,20 +18,24 @@ export const useSetOrder = () => {
       alert("주문정보가 존재하지 않습니다.");
       return;
     }
+    if (!data.orderCarts?.length) {
+      alert("주문정보가 존재하지 않습니다.");
+      return;
+    }
     
     const authId = auth.uid;
-    const createOrder = {
-      orderId: "ORDER_" + Date.now().toString(),
+    const createOrders = data.orderCarts.map((cart, idx) => ({
+      ...cart,
+      orderId: "ORDER" + "_" + idx.toString() + "_" + Date.now().toString(),
       orderAddress: data.orderAddress,
-      orderCarts: data.orderCarts,
       orderPrice: data.orderPrice,
       orderDate: data.orderDate,
       deliverState: true
-    } as IOrder;
+    }) as IHistory) as IHistory[];
     
     try {
       await setDoc(doc(db, "order", authId), {
-        authOrder: arrayUnion(createOrder)
+        authOrder: arrayUnion(...createOrders)
       }, { merge: true });
     } catch (error) {
       console.error("[Error]: Add Order DB Error: ", error)
