@@ -19,12 +19,15 @@ export const usePayment = ({ onSuccess, ...order }: usePaymentProps) => {
 
   const onPayment = async () => {
     const clientKey = import.meta.env.VITE_TOSS_CLIENT_KEY;
-    const { orderId, orderName, orderPrice } = order;
+    const { orderId, orderPrice } = order;
+    const cartLength = order.orderCarts.length;
+    let { orderName } = order;
     if (auth?.uid !== orderId) {
       alert("잠시후 다시 시도해주세요.");
       navigate("/cart", { replace: true, state: {} });
       return;
     }
+    orderName = cartLength === 1 ? `${orderName}` : `${orderName} 외 ${cartLength - 1}권`;
 
     loadTossPayments(clientKey).then(tossPayments => {
       tossPayments.requestPayment('카드', {
