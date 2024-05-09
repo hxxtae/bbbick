@@ -1,4 +1,4 @@
-import { arrayUnion, doc, setDoc } from 'firebase/firestore';
+import { doc, writeBatch } from 'firebase/firestore';
 import { useMutation } from 'react-query';
 
 import { useAuthStore } from '@/store/useAuthStore';
@@ -24,9 +24,8 @@ export const useSetOrder = () => {
     }
     
     const authId = auth.uid;
-    const createOrders = data.orderCarts.map((cart, idx) => ({
+    const createOrders = data.orderCarts.map((cart) => ({
       ...cart,
-      orderId: "ORDER" + "_" + idx.toString() + "_" + Date.now().toString(),
       orderAddress: data.orderAddress,
       orderPrice: data.orderPrice,
       orderDate: data.orderDate,
@@ -34,9 +33,13 @@ export const useSetOrder = () => {
     }) as IHistory) as IHistory[];
     
     try {
-      await setDoc(doc(db, "order", authId), {
-        authOrder: arrayUnion(...createOrders)
-      }, { merge: true });
+
+      const batch = writeBatch(db);
+      createOrders.forEach((orderData, idx) => {
+        const orderId = "ORDER" + "_" + idx.toString() + "_" + Date.now().toString();
+        batch.set(doc(db, "order", authId, "authOrder", orderId), { orderId, ...orderData });
+      });
+      await batch.commit();
     } catch (error) {
       console.error("[Error]: Add Order DB Error: ", error)
     }

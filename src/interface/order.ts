@@ -20,4 +20,4 @@ export type StepType = {
   desc: string;
 }
 
-export type IHistory = CartType & Omit<IOrder, "orderCarts">
+export type IHistory = CartType & Omit<IOrder, "orderCarts" | "orderId">
