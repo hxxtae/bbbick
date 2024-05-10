@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { styled as style } from '@mui/system';
 import { Box, Button, Chip, Typography } from '@mui/material';
 
 export const Section = styled(Box)`
@@ -93,6 +94,15 @@ export const UpdButton = styled(Button)`
   font-size: 14px;
 `
 
-export const DelButton = styled(Button)`
-  font-size: 14px;
-`;
+export const DelButton = style(Button)(({ theme }) => ({
+  backgroundColor: "transparent",
+  borderColor: theme.palette.error.bg,
+  color: theme.palette.error.main,
+  fontSize: "14px",
+  ":hover": {
+    backgroundColor: "transparent",
+    borderColor: theme.palette.error.bg,
+    color: theme.palette.error.main,
+    opacity: .7,
+  },
+}));

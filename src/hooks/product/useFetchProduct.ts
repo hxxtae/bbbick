@@ -63,7 +63,7 @@ export const useFetchProduct = (category: BooksKinds) => {
 
   useEffect(() => {
     refetch();
-  }, [orderDate, orderPrice])
+  }, [orderDate, orderPrice, refetch])
   
   return {
     isLoading,

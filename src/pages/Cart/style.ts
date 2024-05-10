@@ -71,4 +71,6 @@ export const TableBody_ = styled(TableBody)``;
 
 export const TableRow_ = styled(TableRow)``;
 
-export const TableCell_ = styled(TableCell)``;
+export const TableCell_ = styled(TableCell)`
+  font-weight: 600;
+`;
