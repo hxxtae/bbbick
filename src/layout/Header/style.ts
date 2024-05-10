@@ -29,6 +29,7 @@ export const Logo = styled(Typography)`
 export const UserImage = styled(Avatar)`
   width: 30px;
   height: 30px;
+  cursor: pointer;
 `;
 
 export const UserID = styled(Typography)`
