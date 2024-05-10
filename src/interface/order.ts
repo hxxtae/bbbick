@@ -19,3 +19,7 @@ export type StepType = {
   name: string;
   desc: string;
 }
+
+export type IHistory = {
+  deliverState?: boolean;
+} & CartType & Omit<IOrder, "orderCarts">

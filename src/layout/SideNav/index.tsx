@@ -10,10 +10,10 @@ export const SideNav = () => {
       <Nav>
         <Nav.Head1 title="비비빅" />
         <Nav.Head2 title="구매하기" />
-        <Nav.Item name="북스" path="/" />
+        <Nav.Item name="홈으로" path="/" />
+        <Nav.Item name="신간도서" path="/ebooks" />
         <Nav.Item name="베스트셀러" path="/best" />
         <Nav.Item name="추천 북" path="/like" />
-        <Nav.Item name="e-북" path="/ebooks" />
       </Nav>
       <Nav>
         <Nav.Head2 title="관리하기" />

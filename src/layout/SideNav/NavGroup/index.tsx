@@ -6,19 +6,10 @@ import {
   ListItem,
   ListItemButton
 } from '@mui/material';
-import {
-  AttachMoney,
-  Favorite,
-  ImportContacts,
-  MenuBook,
-  Person,
-  Search,
-  SettingsApplications,
-  ShoppingCart,
-  Star
-} from '@mui/icons-material';
-import * as S from './style';
 import { BadgeBoxProps, HeadProps, IconProps, LinkProps } from '@/interface/nav';
+import { Search } from '@mui/icons-material';
+import { NavIcon } from '@/components/common/NavIcon';
+import * as S from './style';
 
 export const Container = ({ children }: PropsWithChildren) => {
   return (
@@ -76,28 +67,28 @@ export const Item = ({ name, path, badgeContent }: LinkProps) => {
 export const Icon = ({ pathName }: IconProps) => {
   switch (pathName) {
     case '/': {
-      return <MenuBook />
+      return <NavIcon name="home" />
     }
     case '/best': {
-      return <Star />
+      return <NavIcon name="best" />
     }
     case '/like': {
-      return <Favorite />
+      return <NavIcon name="like" />
     }
     case '/ebooks': {
-      return <ImportContacts />
-      }
+      return <NavIcon name="recent" />
+    }
     case '/mypage': {
-      return <Person />
+      return <NavIcon name="person" />
     }
     case '/history': {
-      return <AttachMoney />
+      return <NavIcon name="history" />
     }
     case '/cart': {
-      return <ShoppingCart />
+      return <NavIcon name="cart" />
     }
     case '/management': {
-      return <SettingsApplications />
+      return <NavIcon name="setting" />
     }
     case '/search': {
       return <Search />

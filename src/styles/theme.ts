@@ -38,7 +38,8 @@ const lightPalette = {
     main: colors.red[700],
     light: colors.red[300],
     dark: colors.red[700],
-    contrastText: colors.common.white
+    contrastText: colors.common.white,
+    bg: "#FFEEEE",
   },
   success: {
     main: '#13BD74',
@@ -67,7 +68,8 @@ const darkPalette = {
     main: colors.red[500],
     light: colors.red[400],
     dark: colors.red[800],
-    contrastText: colors.common.white
+    contrastText: colors.common.white,
+    bg: "#353232",
   },
   success: {
     main: '#13BD74',
@@ -82,6 +84,6 @@ const darkPalette = {
   },
   text: {
     main: '#FFFFFF',
-    sub: '#e7e7e7'
+    sub: '#B3B3B3'
   },
 }

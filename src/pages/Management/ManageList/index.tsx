@@ -41,11 +41,7 @@ export const ManageList = () => {
               <ModalToggle toggleName='수정하기' iconShow={false}>
                 <Portal children={<ManageForm productData={item} />} />
               </ModalToggle>
-              <S.DelButton variant="outlined" sx={{
-                color: "error.main",
-                borderColor: "error.main", '&:hover': {
-                  borderColor: 'error.light',
-                }}} onClick={() => delProduct(item.id)}>삭제하기</S.DelButton>
+              <S.DelButton variant="outlined" onClick={() => delProduct(item.id)}>삭제하기</S.DelButton>
             </S.ButtonGroup>
           </S.Item>
         ))}

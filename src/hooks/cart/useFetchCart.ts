@@ -33,7 +33,6 @@ export const useFetchCart = () => {
     staleTime: Infinity,
     cacheTime: 1000 * 60 * 10, // 10분
     refetchOnWindowFocus: false,
-    retry: false,
     refetchOnMount: true,
     select: (cartData?: ICart) => {
       if (cartData?.authCart.length) {

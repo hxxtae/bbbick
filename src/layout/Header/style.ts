@@ -30,6 +30,7 @@ export const UserImage = styled(Avatar)`
   width: 30px;
   height: 30px;
 `;
-export const UserID = styled(Typography)`
 
+export const UserID = styled(Typography)`
+  font-size: 14px;
 `;

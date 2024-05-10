@@ -1,9 +1,9 @@
 import { Paper, TableContainer } from '@mui/material';
 import { useFetchCart } from '@/hooks/cart/useFetchCart';
-import { CartItem } from './CartItem';
-import { CartPayment } from './CartPayment';
-import * as S from './style';
 import { useAuthStore } from '@/store/useAuthStore';
+import { CartPayment } from './CartPayment';
+import { CartItem } from './CartItem';
+import * as S from './style';
 
 export const Cart = () => {
   const { data, getCartTotalPay, getCartTotalQuantity } = useFetchCart();
