@@ -3,8 +3,8 @@ import { BOOK_CATEGORY_1, BOOK_CATEGORY_2 } from '@/constants/product';
 import { useDelProduct } from '@/hooks/product/useDelProduct';
 import { numberFormat } from '@/utils/format';
 import { CategoryKey } from '@/interface/products';
-import { ModalToggle } from '@/components/common/ModalToggle';
-import { Portal } from '@/components/common/Portal';
+import { ButtonToggle } from '@/components/common/ModalToggle';
+import { SidePortal } from '@/components/common/Portal';
 import { ManageForm } from '../ManageForm';
 
 import * as S from './style';
@@ -38,9 +38,9 @@ export const ManageList = () => {
               <S.Text sx={{ opacity: .6 }}>{item.publisher}</S.Text>
             </S.Content>
             <S.ButtonGroup>
-              <ModalToggle toggleName='수정하기' iconShow={false}>
-                <Portal children={<ManageForm productData={item} />} />
-              </ModalToggle>
+              <ButtonToggle toggleName='수정하기' iconShow={false}>
+                <SidePortal children={<ManageForm productData={item} />} />
+              </ButtonToggle>
               <S.DelButton variant="outlined" onClick={() => delProduct(item.id)}>삭제하기</S.DelButton>
             </S.ButtonGroup>
           </S.Item>

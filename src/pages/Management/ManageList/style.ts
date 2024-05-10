@@ -19,14 +19,18 @@ export const List = styled.ul`
   margin: 0;
 `;
 
-export const Item = styled(Box)`
-  display: flex;
-  flex-shrink: 0;
-  height: 200px;
-  max-height: 200px;
-  overflow: hidden;
-  gap: 10px;
-`;
+export const Item = style(Box)(({ theme }) => ({
+  display: "flex",
+  flexShrink: 0,
+  height: "200px",
+  maxHeight: "200px",
+  overflow: "hidden",
+  gap: "10px",
+
+  ":hover": {
+    backgroundColor: theme.palette.bg.card,
+  },
+}))
 
 export const ImageBox = styled.div`
   overflow: hidden;
