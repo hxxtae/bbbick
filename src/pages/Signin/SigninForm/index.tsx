@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 
 import { Group, InputPassword, InputText } from '@/components/form/Input';
 import { emailValidate, passwordValidate } from '@/utils/regexps';
-import { useSignin } from '@/hooks/form/useSignin';
+import { useSignin } from '@/hooks/auth/useSignin';
 import { SigninSubmit } from '../SigninSubmit';
 import { ISignin } from '@/interface/form';
 import * as S from './style';
