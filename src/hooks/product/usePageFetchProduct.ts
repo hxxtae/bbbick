@@ -1,9 +1,9 @@
 import { collection, getDocs, limit, orderBy, query, startAfter } from 'firebase/firestore';
-
-import { db } from '@/service/firebaseApp';
-import { BooksKinds, ProductType } from '@/interface/products';
 import { useInfiniteQuery } from 'react-query';
+
+import { BooksKinds, ProductType } from '@/interface/products';
 import { queryKeys } from '@/constants/keys';
+import { db } from '@/service/firebaseApp';
 
 const firstLimit = 10;
 const nextLimit = 5;
