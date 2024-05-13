@@ -5,7 +5,6 @@ import { ExitToApp } from '@mui/icons-material';
 import { IAuth } from '@/interface/auth';
 import { Avatar } from '@mui/material';
 import * as S from './style';
-import { LineLoading } from '../Loading';
 
 interface UserModalProps {
   user: IAuth;
@@ -13,13 +12,10 @@ interface UserModalProps {
 }
 
 export const UserModal = ({ user, toggleModal }: UserModalProps) => {
-  const { signoutLoading, onSignout } = useSignout();
+  const { onSignout } = useSignout();
 
   return (
     <S.Section sx={{ bgcolor: "bg.modal" }}>
-      <S.Loading>
-        {signoutLoading && <LineLoading />}
-      </S.Loading>
       <S.HeadBlock>
         <S.UserEmail>{user.email}</S.UserEmail>
         <S.UserProfile>
