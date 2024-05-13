@@ -6,6 +6,7 @@ export const localStorageKeys = {
 export const queryKeys = {
   auth: {
     all: ['/auth'] as const,
+    address: () => [...queryKeys.auth.all, '/address'] as const,
   },
   cart: {
     all: ['/cart'] as const,
