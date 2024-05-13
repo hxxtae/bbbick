@@ -14,7 +14,10 @@ export const useSignup = () => {
       const auth = getAuth(app);
       const { user } = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(user, { displayName: nickname }); // Firebase에서 제공하는 displayName 업데이트
-      await setDoc(doc(db, "auth", user.uid), { authType }); // 사용자 추가 정보를 Firestore에 저장
+      await setDoc(doc(db, "auth", user.uid), {
+        authType,
+        authAddress: null,
+      }); // 사용자 추가 정보를 Firestore에 저장
       navigate("/");
 
     } catch (err: any) {
