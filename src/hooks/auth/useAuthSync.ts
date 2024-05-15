@@ -8,7 +8,7 @@ import { doc, getDoc } from 'firebase/firestore';
 
 export const useAuthSync = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const { setAuth } = useAuthStore();
+  const { setAuth } = useAuthStore((state) => state);
   
   useEffect(() => {
     const auth = getAuth(app);
@@ -17,6 +17,7 @@ export const useAuthSync = () => {
         const getAuthStoreData = async () => {
           const dataSnap = await getDoc(doc(db, "auth", user?.uid)); // 사용자 추가 데이터 가져오기
           const { authType, authAddress } = dataSnap.data() as AuthAddition;
+
           setAuth({
             uid: user.uid,
             email: user.email,

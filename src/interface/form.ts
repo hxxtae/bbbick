@@ -8,7 +8,7 @@ export interface ISignup {
   password: string
   passwordConfirm: string
   nickname: string
-  authType?: string | boolean
+  authType?: boolean
 }
 
 export interface IProductFiles {
