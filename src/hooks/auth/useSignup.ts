@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { ISignup } from '@/interface/form'
 import { app, db } from '@/service/firebaseApp';
 import { doc, setDoc } from 'firebase/firestore';
+import { useAuthStore } from '@/store/useAuthStore';
 
 export const useSignup = () => {
+  const { setAuth } = useAuthStore();
   const navigate = useNavigate();
   const onSubmit = async ({ email, password, passwordConfirm, nickname, authType }: ISignup) => {
     if (password !== passwordConfirm) return;
@@ -15,9 +17,18 @@ export const useSignup = () => {
       const { user } = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(user, { displayName: nickname }); // Firebase에서 제공하는 displayName 업데이트
       await setDoc(doc(db, "auth", user.uid), {
-        authType,
+        authType: authType ?? false,
         authAddress: null,
       }); // 사용자 추가 정보를 Firestore에 저장
+
+      setAuth({
+        uid: user.uid,
+        email,
+        nickname,
+        authAddress: null,
+        profileImg: null,
+        authType: authType ?? false
+      })
       navigate("/");
 
     } catch (err: any) {
