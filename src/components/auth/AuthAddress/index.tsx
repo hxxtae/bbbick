@@ -16,7 +16,7 @@ const Address = Object.assign(Group, {
 
 export const AuthAddress = () => {
   const { authData } = useFetchAuth();
-  const { setAuthAddress } = useSetAuth();
+  const { isAuthLoading, setAuthAddress } = useSetAuth();
   const { register, handleSubmit, setValue } = useForm<AddressForm>();
 
   const onSubmit = (data: AddressForm) => {
@@ -74,7 +74,7 @@ export const AuthAddress = () => {
           })} />
         </Address>
         <S.BtnGroup>
-          <S.Save type="submit" variant="contained">배송지 저장</S.Save>
+          <S.Save type="submit" variant="contained" disabled={isAuthLoading}>배송지 저장</S.Save>
         </S.BtnGroup>
       </S.Form>
     </S.DeliverBlock>
