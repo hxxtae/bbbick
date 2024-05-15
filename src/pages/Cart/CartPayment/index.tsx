@@ -1,27 +1,34 @@
-import { CartType } from '@/interface/cart';
-import * as S from './style';
-import { numberFormat } from '@/utils/format';
 import { Link, useNavigate } from 'react-router-dom';
+
+import { numberFormat } from '@/utils/format';
+import { CartType } from '@/interface/cart';
 import { IOrder } from '@/interface/order';
+import { IAuth } from '@/interface/auth';
+import * as S from './style';
 
 interface CartPaymentProps {
-  authId: string | null;
+  authData: IAuth | null;
   carts?: CartType[];
   totalPrice: number;
   totalRegular: number;
   totalQuantity: number;
 }
 
-export const CartPayment = ({ authId, carts = [], totalPrice, totalRegular, totalQuantity }: CartPaymentProps) => {
+export const CartPayment = ({ authData, carts = [], totalPrice, totalRegular, totalQuantity }: CartPaymentProps) => {
   const navigate = useNavigate();
   const onClickOrder = () => {
+    if (!authData?.uid) {
+      alert("로그인 이후 이용해주세요.");
+      return;
+    }
     if (carts.length < 1) return;
+    
     navigate("/cart/order", {
       state: {
-        orderId: authId,
+        orderId: authData.uid,
         orderCarts: [...carts],
         orderPrice: totalPrice,
-        orderAddress: null,
+        orderAddress: {...authData.authAddress},
         orderDate: null
       } as IOrder
     })
