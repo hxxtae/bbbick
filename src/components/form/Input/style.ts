@@ -14,6 +14,7 @@ export const Title = styled(InputLabel)`
 
 export const Input = styled(TextField)`
   font-size: 14px;
+  width: inherit;
 `
 
 export const CheckBox = styled(Checkbox)`
@@ -22,4 +23,5 @@ export const CheckBox = styled(Checkbox)`
 
 export const SelectBox = styled(Select)`
   font-size: 14px;
+  width: inherit;
 `
