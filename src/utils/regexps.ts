@@ -10,3 +10,9 @@ export const passwordValidate = (password: string) => {
   if (pattern.test(password)) return true;
   return false;
 }
+
+export const imageNameValidate = (name: string) => {
+  const pattern = /^[\w@!#$%^&()_+`ㄱ-ㅎ가-힣ㅏ-ㅣ\s]+.(jpg|jpeg)$/;
+  if (pattern.test(name)) return true;
+  return false;
+}
