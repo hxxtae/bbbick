@@ -33,7 +33,7 @@ export const PrivateItem = style(Box)(({ theme }) => ({
 }))
 
 export const PrivateNum = styled(Typography)`
-  line-height: 6em;
+  line-height: 4em;
   font-weight: 600;
 `;
 
