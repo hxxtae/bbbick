@@ -1,9 +1,11 @@
-import { queryKeys } from '@/constants/keys'
+import { doc, getDoc } from 'firebase/firestore';
+import { FirebaseError } from 'firebase/app';
+import { useQuery } from 'react-query'
+
 import { ICart } from '@/interface/cart';
 import { db } from '@/service/firebaseApp';
+import { queryKeys } from '@/constants/keys'
 import { useAuthStore } from '@/store/useAuthStore';
-import { doc, getDoc } from 'firebase/firestore';
-import { useQuery } from 'react-query'
 
 export const useFetchCart = () => {
   const auth = useAuthStore((state) => state.auth);
@@ -20,7 +22,11 @@ export const useFetchCart = () => {
       const post = await getDoc(doc(db, "cart", auth.uid));
       return post.data() as ICart;
     } catch (error) {
-      console.error("[ERROR]: ", error)
+      if (error instanceof FirebaseError) {
+        console.error("[Error] Fetch Cart Error: " + error.message);
+      } else {
+        console.error("[Error] Fetch Cart Error: " + error)
+      }
     }
   }
 
@@ -30,6 +36,7 @@ export const useFetchCart = () => {
   const { isLoading, data } = useQuery({
     queryKey: queryKeys.cart.all,
     queryFn: getCartAPI,
+    enabled: !!auth?.uid,
     staleTime: Infinity,
     cacheTime: 1000 * 60 * 10, // 10분
     refetchOnWindowFocus: false,
@@ -41,7 +48,7 @@ export const useFetchCart = () => {
         return carts;
       }
       return cartData?.authCart
-    }
+    },
   });
 
   // 카트 여부 확인

@@ -29,7 +29,7 @@ export const CartItem = ({ data }: CartItemProps) => {
         {/* 이름 및 텍스트 */}
         <S.TableCell_ align="left" sx={{ maxWidth: 250 }}>
           <S.Text>[도서] {data.name}</S.Text>
-          <S.Text>{data.writer}&nbsp;|&nbsp;{data.publisher}</S.Text>
+          <S.Text>{numberFormat(data.price)}원&nbsp;/&nbsp;{data.writer}&nbsp;/&nbsp;{data.publisher}</S.Text>
         </S.TableCell_>
         {/* 수량 */}
         <S.TableCell_ align="center" sx={{ width: 120 }}>

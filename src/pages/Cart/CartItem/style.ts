@@ -30,6 +30,9 @@ export const Image = styled.img`
 export const Text = styled(Typography)`
   font-size: 14px;
   padding: 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const Remove = styled(Button)`

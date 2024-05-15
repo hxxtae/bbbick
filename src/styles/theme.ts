@@ -43,7 +43,7 @@ const lightPalette = {
   },
   success: {
     main: '#13BD74',
-    sub: '#23D387'
+    sub: '#23D387',
   },
   border: {
     main: '#E2E3E6',
@@ -51,10 +51,12 @@ const lightPalette = {
   bg: {
     main: '#FFFFFF',
     card: '#F0F2F4',
+    modal: '#E9EEF6',
+    modalSub: '#F8FAFD',
   },
   text: {
     main: '#111111',
-    sub: '#BFC6D0'
+    sub: '#BFC6D0',
   }
 }
 
@@ -73,17 +75,19 @@ const darkPalette = {
   },
   success: {
     main: '#13BD74',
-    sub: '#23D387'
+    sub: '#23D387',
   },
   border: {
-    main: '#3F3F3F'
+    main: '#3F3F3F',
   },
   bg: {
     main: '#111111',
     card: '#1E1E1E',
+    modal: '#282A2C',
+    modalSub: '#1B1B1B',
   },
   text: {
     main: '#FFFFFF',
-    sub: '#B3B3B3'
+    sub: '#B3B3B3',
   },
 }

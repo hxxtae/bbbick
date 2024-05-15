@@ -32,7 +32,7 @@ export const Cart = () => {
         </TableContainer>
       </S.Block>
       <CartPayment
-        authId={auth?.uid || null}
+        authData={auth}
         carts={data}
         totalPrice={getCartTotalPay("price")}
         totalRegular={getCartTotalPay("regularPrice")}

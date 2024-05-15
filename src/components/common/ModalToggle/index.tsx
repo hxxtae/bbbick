@@ -9,7 +9,12 @@ interface ModalToggleProps {
   iconShow?: boolean;
 }
 
-export const ModalToggle = ({ children, toggleName, iconShow = true }: ModalToggleProps) => {
+interface CustomModalToggleProps {
+  modalComponent: React.ReactElement;
+  children: React.ReactElement;
+}
+
+export const ButtonToggle = ({ children, toggleName, iconShow = true }: ModalToggleProps) => {
   const [open, setOpen] = useState(false);
 
   const toggleModal = () => {
@@ -24,5 +29,22 @@ export const ModalToggle = ({ children, toggleName, iconShow = true }: ModalTogg
       </S.Add>
       {open && cloneElement(children, { toggleModal })}
     </div>
+  )
+}
+
+export const CustomToggle = ({ modalComponent, children }: CustomModalToggleProps) => {
+  const [open, setOpen] = useState(false);
+
+  const toggleModal = () => {
+    setOpen((prev) => !prev);
+  }
+
+  return (
+    <>
+      <div className="profile" onClick={toggleModal}>
+        {children}
+      </div>
+      {open && cloneElement(modalComponent, { toggleModal })}
+    </>
   )
 }

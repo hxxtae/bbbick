@@ -1,12 +1,21 @@
 import { AddressType } from './order';
 
-export interface IAuth {
+export interface AuthAddition {
+  authType: boolean;
+  authAddress: AddressType | null;
+}
+
+export interface IAuth extends AuthAddition {
   uid: string | null;
   email: string;
   nickname: string | null;
   profileImg: string | null;
-  authType: string | null;
-  authAddress: AddressType | null;
 }
 
 export type AddressForm = AddressType;
+
+export type SetAuthType = {
+  nickname?: string;
+  password?: string;
+  profileImg?: File;
+}

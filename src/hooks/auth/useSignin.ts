@@ -7,7 +7,6 @@ import { app } from '@/service/firebaseApp';
 export const useSignin = () => {
   const navigate = useNavigate();
   const onSubmit = async ({ email, password }: ISignin) => {
-    console.log(email, password)
 
     try {
       const auth = getAuth(app);

@@ -4,6 +4,7 @@ import { Favorite } from '@mui/icons-material';
 import { BOOK_CATEGORY_1, BOOK_CATEGORY_2 } from '@/constants/product';
 import { CategoryKey } from '@/interface/products';
 import { useFetchCart } from '@/hooks/cart/useFetchCart';
+import { ShinyCard } from '@/components/common/ShinyCard';
 import { useSetCart } from '@/hooks/cart/useSetCart';
 import { numberFormat } from '@/utils/format';
 import { Books } from '@/layout/Books';
@@ -18,10 +19,10 @@ export const ProductDetail = () => {
   const cartAddHandler = (nowPay: boolean = false) => {
     if (getCartItem(state.id)) {
       navigate("/cart");
-      return;
+    } else {
+      onAddCart(state);
+      nowPay && navigate("/cart");
     }
-    onAddCart(state)
-    nowPay && navigate("/cart");
   }
 
   return (
@@ -29,9 +30,11 @@ export const ProductDetail = () => {
       <S.Block sx={{ bgcolor: "bg.main" }}>
         <S.Wrapper>
           <S.Left>
-            <S.ImageBox>
-              <S.Image src={state.productImg_url[0].url} />
-            </S.ImageBox>
+            <ShinyCard>
+              <S.ImageBox>
+                <S.Image src={state.productImg_url[0].url} />
+              </S.ImageBox>
+            </ShinyCard>
           </S.Left>
 
           <S.Right>

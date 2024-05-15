@@ -43,6 +43,7 @@ export const useFetchOrder = () => {
     getNextPageParam: ({ cursor }) => {
       return cursor.size < 1 ? null : cursor.docs[cursor.docs.length - 1]
     },
+    enabled: !!auth?.uid,
     select: (data) => ({
       pageParams: data.pageParams,
       pages: data.pages
@@ -58,7 +59,6 @@ export const useFetchOrder = () => {
         console.error("[ERROR] Order Fetch Error ", error);
       }
     },
-    suspense: true,
   })
 
   return {

@@ -141,12 +141,13 @@ export const ManageForm = ({ productData }: ManageFormProps) => {
       </S.Row>
       <S.Row>
         <ManageInput>
-          <ManageInput.Title title="발행일" id="publishDate"/>
+          <ManageInput.Title title="발행일*" id="publishDate"/>
           <ManageInput.InputText
             type="date"
             id="publishDate"
             helperText={errors.publisher?.message}
             resister={register("publishDate", {
+              required: "필수입력란 입니다.",
               maxLength: 10,
               value: productData?.publishDate
           })}/>
