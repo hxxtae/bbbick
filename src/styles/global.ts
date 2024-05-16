@@ -2,18 +2,22 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   .css-10hburv-MuiTypography-root {
-    font-size: 14px;
+    font-size: 14px !important;
     font-weight: inherit;
+  }
+
+  .css-ejie8s-MuiButtonBase-root-MuiMenuItem-root {
+    font-size: 14px !important;
   }
 
   /* Dark */
   .css-p51h6s-MuiInputBase-input-MuiOutlinedInput-input {
-    font-size: 14px;
+    font-size: 14px !important;
   }
 
   /* Light */
   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
-    font-size: 14px;
+    font-size: 14px !important;
   }
 
   /* Scroll_width */
