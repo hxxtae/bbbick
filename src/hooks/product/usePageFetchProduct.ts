@@ -1,14 +1,30 @@
-import { collection, getDocs, limit, orderBy, query, startAfter } from 'firebase/firestore';
+import { collection, getDocs, limit, orderBy, query, startAfter, where } from 'firebase/firestore';
 import { useInfiniteQuery } from 'react-query';
+import { useCallback, useEffect } from 'react';
 
-import { BooksKinds, ProductType } from '@/interface/products';
+import { BooksKinds, CategoryKey, ProductType } from '@/interface/products';
 import { queryKeys } from '@/constants/keys';
 import { db } from '@/service/firebaseApp';
 
 const firstLimit = 10;
 const nextLimit = 5;
 
-export const usePageFetchProduct = (category: BooksKinds) => {
+interface usePageFetchProductProps {
+  category: BooksKinds;
+  category1?: CategoryKey | "000";
+  category2?: string;
+}
+
+export const usePageFetchProduct = ({ category, category1, category2 }: usePageFetchProductProps) => {
+  
+  const getQuery = useCallback(() => {
+    const indexName1 = "category1";
+    const indexName2 = "category2";
+    if (category1 === "000") return [where(indexName1, "!=", '')];
+    if (category1 && !category2) return [where(indexName1, "==", category1)];
+    if (category1 && category2) return [where(indexName1, "==", category1), where(indexName2, "==", category2)];
+    return [where(indexName1, "!=", '')];
+  }, [category1, category2]);
 
   const getOrder = () => {
     switch (category) {
@@ -31,10 +47,12 @@ export const usePageFetchProduct = (category: BooksKinds) => {
     const setQuery = !pageParam ?
       query(
         collection(db, "products"),
+        ...getQuery(),
         getOrder(),
         limit(firstLimit)) : 
       query(
         collection(db, "products"),
+        ...getQuery(),
         getOrder(),
         startAfter(pageParam),
         limit(nextLimit))
@@ -48,7 +66,7 @@ export const usePageFetchProduct = (category: BooksKinds) => {
     return { cursor, posts };
   }
 
-  const { data, isFetchingNextPage, hasNextPage, fetchNextPage } = useInfiniteQuery({
+  const { data, isFetchingNextPage, hasNextPage, fetchNextPage, isLoading, refetch, isRefetching } = useInfiniteQuery({
     queryKey: [...queryKeys.product.categoryScroll(category, nextLimit)],
     queryFn: ({ pageParam }) => getSnapShot(pageParam),
     getNextPageParam: ({cursor}) => {
@@ -64,11 +82,18 @@ export const usePageFetchProduct = (category: BooksKinds) => {
     retry: false,
   })
 
+  useEffect(() => {
+    refetch();
+  }, [category1, category2])
+
   return {
     products: data?.pages.flatMap((item) => item.posts),
     isFetchingNextPage,
     hasNextPage,
-    fetchNextPage
+    fetchNextPage,
+    initLoading: isLoading,
+    isRefetching,
+    refetch,
   }
 }
 
