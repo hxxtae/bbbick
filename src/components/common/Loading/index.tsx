@@ -1,9 +1,13 @@
 import { CircularProgress, LinearProgress } from '@mui/material';
 import * as S from './style';
 
-export const LineLoading = () => {
+interface LineLoadingProps {
+  fixed?: boolean;
+}
+
+export const LineLoading = ({ fixed = false }: LineLoadingProps) => {
   return (
-    <S.Wrapper >
+    <S.Wrapper $fixed={fixed}>
       <LinearProgress sx={{ bgColor: "primary.main" }}/>
     </S.Wrapper>
   )
@@ -11,7 +15,7 @@ export const LineLoading = () => {
 
 export const CycleLoading = () => {
   return (
-    <S.Wrapper sx={{ display: "flex", justifyContent: "center" }}>
+    <S.Wrapper $fixed={false} sx={{ display: "flex", justifyContent: "center" }}>
       <svg width={0} height={0}>
         <defs>
           <linearGradient id="my_gradient" x1="0%" y1="0%" x2="0%" y2="100%">
