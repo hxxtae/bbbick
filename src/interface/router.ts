@@ -1,7 +1,7 @@
 export type IRouterPaths =
   '/best' |
   '/like' |
-  '/ebooks' |
+  '/recent' |
   '/cart' |
   '/mypage' |
   '/history' |

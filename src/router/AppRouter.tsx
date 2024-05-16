@@ -15,12 +15,17 @@ import { Management } from '@/pages/Management';
 import { Signin } from '@/pages/Signin';
 import { Signup } from '@/pages/Signup';
 import { Home } from '@/pages/Home';
+import { Recent } from '@/pages/Recent';
 import { MyPage } from '@/pages/MyPage';
 import { Best } from '@/pages/Best';
 import { Like } from '@/pages/Like';
 import { Cart } from '@/pages/Cart';
-import { History } from '@/pages/History';
+// import { History } from '@/pages/History';
 import Order from '@/pages/Order';
+import { Suspense, lazy } from 'react';
+import { CycleLoading } from '@/components/common/Loading';
+
+const History = lazy(() => import('@/pages/History').then((module) => ({default: module.History})));
 
 export const AppRouter = () => {
   return (
@@ -29,14 +34,14 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/" element={<StoreLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/recent" element={<Recent />} />
           <Route path="/recent/:bookid" element={<ProductDetail/>} />
           <Route path="/best" element={<Best />} />
           <Route path="/best/:bookid" element={<ProductDetail/>} />
           <Route path="/like" element={<Like />} />
           <Route path="/like/:bookid" element={<ProductDetail/>} />
-          <Route path="/ebooks" />
           <Route path="/mypage" element={<PublicRouter><MyPage/></PublicRouter>}/>
-          <Route path="/history" element={<History/>} />
+          <Route path="/history" element={<Suspense fallback={<CycleLoading />}><History/></Suspense>} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/cart/order" element={<Order orderState={{}} />} />
           <Route path="/management" element={<PrivateRouter><Management /></PrivateRouter>} />
