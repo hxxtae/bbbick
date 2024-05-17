@@ -14,8 +14,9 @@ export const queryKeys = {
   product: {
     all: ['/product'] as const,
     basic: (page: number) => [...queryKeys.product.all, `${page}`] as const,
-    orders: (order: string) => [...queryKeys.product.all, `/${order}`] as const,
+    orders: (order: string, orderKind: string) => [...queryKeys.product.all, `/${order}`, `${orderKind}`] as const,
     categorys: (order: string, category1: string, category2: string) => [...queryKeys.product.all, `/${order}`, `/${category1}`, `/${category2}`] as const,
+    detail: (id: string) => [...queryKeys.product.all, `/${id}`] as const,
   },
   order: {
     all: ['/order'] as const,
