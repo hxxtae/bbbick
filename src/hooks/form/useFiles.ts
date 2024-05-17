@@ -4,14 +4,17 @@ import { useEffect, useState } from 'react';
 import { IFilePath, IProductFiles } from '@/interface/form';
 import { storage } from '@/service/firebaseApp'
 import { localStorageKeys } from '@/constants/keys';
+import { LocalStore } from '@/store/localStore';
 
 interface FilesProps {
   basePath: IFilePath;
   initFiles?: IProductFiles[];
 }
 
+const localFile = new LocalStore(localStorageKeys.files);
+
 export const useFiles = ({ basePath = "images", initFiles }: FilesProps) => {
-  const local = JSON.parse(localStorage.getItem(localStorageKeys.files) ?? '[]') as IProductFiles[];
+  const local = JSON.parse(localFile.get() ?? '[]') as IProductFiles[];
   const [imageList, setImageList] = useState<IProductFiles[]>(initFiles ? [...initFiles] : local);
   const [imageLoading, setImageLoading] = useState<boolean>(true);
   // const imageListRef = ref(storage, `${basePath}/`);
@@ -27,7 +30,7 @@ export const useFiles = ({ basePath = "images", initFiles }: FilesProps) => {
       // 업로드 되자마자 이미지 뜨게 만들기
       getDownloadURL(snapshot.ref).then((url) => {
         setImageList((prev) => {
-          localStorage.setItem(localStorageKeys.files, JSON.stringify([...prev, {filename: imageFile.name, url}]));
+          localFile.set(JSON.stringify([...prev, {filename: imageFile.name, url}]))
           return [...prev, {filename: imageFile.name, url}]
         });
         setImageLoading(false);
@@ -45,7 +48,7 @@ export const useFiles = ({ basePath = "images", initFiles }: FilesProps) => {
     deleteObject(imageRef).then(() => {
       setImageList((prev) => {
         const list = prev.filter((item) => item.filename !== filename);
-        localStorage.setItem(localStorageKeys.files, JSON.stringify(list));
+        localFile.set(JSON.stringify(list))
         return list
       })
       setImageLoading(false);

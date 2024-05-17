@@ -2,7 +2,7 @@ import { collection, getDocs, limit, orderBy, query, startAfter, where } from 'f
 import { useInfiniteQuery } from 'react-query';
 import { useCallback } from 'react';
 
-import { BooksKinds, CategoryKey, ProductType } from '@/interface/products';
+import { BooksKinds, CategoryTotalKey, ProductType } from '@/interface/products';
 import { queryKeys } from '@/constants/keys';
 import { db } from '@/service/firebaseApp';
 
@@ -11,7 +11,7 @@ const nextLimit = 5;
 
 interface usePageFetchProductProps {
   category: BooksKinds;
-  category1?: CategoryKey | "000";
+  category1?: CategoryTotalKey;
   category2?: string;
 }
 

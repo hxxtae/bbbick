@@ -1,5 +1,5 @@
 import { BOOK_CATEGORY_1, BOOK_CATEGORY_2 } from '@/constants/product';
-import { CategoryKey } from '@/interface/products';
+import { CategoryTotalKey } from '@/interface/products';
 import { useForm } from 'react-hook-form';
 import { useCallback, useState } from 'react';
 
@@ -8,16 +8,19 @@ import { Box, Chip } from '@mui/material';
 import { Select } from '@/components/form/Input';
 import styled from '@emotion/styled';
 
-type Category1Type = CategoryKey | "000";
-
 interface CategoryForm {
   category1: string;
 }
 
-export const useCategory = () => {
-  const initCategory1 = Object.entries({"000": "전체", ...BOOK_CATEGORY_1});
-  const [category1, setCategory1] = useState<Category1Type>("000");
-  const [category2, setCategory2] = useState<string>();
+interface useCategoryProps {
+  initCategory1: CategoryTotalKey;
+  initCategory2: string;
+}
+
+export const useCategory = ({ initCategory1, initCategory2 }: useCategoryProps) => {
+  const initData = Object.entries({"000": "전체", ...BOOK_CATEGORY_1});
+  const [category1, setCategory1] = useState<CategoryTotalKey>(initCategory1);
+  const [category2, setCategory2] = useState<string>(initCategory2);
   const { register } = useForm<CategoryForm>();
 
   const onClickCategory = (category2: string) => {
@@ -26,11 +29,12 @@ export const useCategory = () => {
 
   const CategorySelect = useCallback(() => {
     return (
-      <Select options={initCategory1} resister={register("category1", {
+      <Select options={initData} defaultValue={category1} resister={register("category1", {
         value: category1,
         onChange(e) {
           setCategory1(e.target.value)
           setCategory2('')
+
         },
       })} />
     )

@@ -1,6 +1,10 @@
+import { BooksKinds } from '@/interface/products'
+
 export const localStorageKeys = {
   theme: "bbbick_theme" as const,
-  files: "bbbick_image" as const
+  files: "bbbick_image" as const,
+  category1: (orderby: BooksKinds) => `bbbick_${orderby}/category1`,
+  category2: (orderby: BooksKinds) => `bbbick_${orderby}/category2`,
 }
 
 export const queryKeys = {

@@ -1,9 +1,26 @@
-import { BooksScroll } from '@/layout/BooksScroll';
-import * as S from './style';
+import { useEffect } from 'react';
+
 import { useCategory } from '@/hooks/common/useCategory';
+import { BooksScroll } from '@/layout/BooksScroll';
+import { localStorageKeys } from '@/constants/keys';
+import { LocalStore } from '@/store/localStore';
+import * as S from './style';
+
+const localLikeCategory1 = new LocalStore(localStorageKeys.category1("like"));
+const localLikeCategory2 = new LocalStore(localStorageKeys.category2("like"));
 
 export const Like = () => {
-  const { category1, category2, CategorySelect, CategoryList } = useCategory();
+  const { category1, category2, CategorySelect, CategoryList } = useCategory({
+    initCategory1: localLikeCategory1.get() ?? "000",
+    initCategory2: localLikeCategory2.get() ?? ""
+  });
+
+  useEffect(() => {
+    return () => {
+      localLikeCategory1.set(category1);
+      localLikeCategory2.set(category2);
+    }
+  }, [category1, category2]);
 
   return (
     <S.Section sx={{ bgcolor: "bg.card" }}>
