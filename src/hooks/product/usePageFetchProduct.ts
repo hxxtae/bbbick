@@ -1,6 +1,6 @@
 import { collection, getDocs, limit, orderBy, query, startAfter, where } from 'firebase/firestore';
 import { useInfiniteQuery } from 'react-query';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 
 import { BooksKinds, CategoryKey, ProductType } from '@/interface/products';
 import { queryKeys } from '@/constants/keys';
@@ -67,7 +67,7 @@ export const usePageFetchProduct = ({ category, category1, category2 }: usePageF
   }
 
   const { data, isFetchingNextPage, hasNextPage, fetchNextPage, isLoading, refetch, isRefetching } = useInfiniteQuery({
-    queryKey: [...queryKeys.product.categoryScroll(category, nextLimit)],
+    queryKey: [...queryKeys.product.categorys(category, category1 ?? 'all', category2 ?? 'all')],
     queryFn: ({ pageParam }) => getSnapShot(pageParam),
     getNextPageParam: ({cursor}) => {
       return cursor.size < 1 ? null : cursor.docs[cursor.docs.length - 1]
@@ -76,15 +76,11 @@ export const usePageFetchProduct = ({ category, category1, category2 }: usePageF
       pageParams: data.pageParams,
       pages: data.pages
     }),
-    staleTime: 1000 * 60 * 5, // 5분
+    staleTime: 1000 * 60 * 10, // 10분
     cacheTime: 1000 * 60 * 20, // 20분
     refetchOnWindowFocus: false,
     retry: false,
   })
-
-  useEffect(() => {
-    refetch();
-  }, [category1, category2])
 
   return {
     products: data?.pages.flatMap((item) => item.posts),
