@@ -24,6 +24,7 @@ export const Left = styled.div`
 export const ImageBox = styled.div`
   width: 280px;
   max-width: 280px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .1);
 `;
 
 export const Image = styled.img`

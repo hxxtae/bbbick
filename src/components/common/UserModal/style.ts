@@ -38,9 +38,12 @@ export const UserName = styled(Typography)`
   font-size: 15px;
 `;
 
-export const MoreBtn = styled(Button)`
-
-`;
+export const MoreBtn = styled(Button)(() => ({
+  backgroundColor: "#FFFFFF",
+  ":hover": {
+    backgroundColor: "#E6EBFF",
+  },
+}))
 
 // Foot
 export const UserInfoWrapper = style(Box)(({ theme }) => ({

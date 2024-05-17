@@ -33,6 +33,11 @@ export const Text = styled(Typography)`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  a &:hover {
+    text-decoration: underline;
+    opacity: .7;
+  }
 `;
 
 export const Remove = styled(Button)`
