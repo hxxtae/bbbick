@@ -4,9 +4,9 @@ import { ThemeButton } from '@/components/common/ThemeButton';
 import { useAuthStore } from '@/store/useAuthStore';
 import { CustomToggle } from '@/components/common/ModalToggle';
 import { UserModal } from '@/components/common/UserModal';
-import { BoxPortal } from '@/components/common/Portal';
-import * as S from './style';
+import { BoxNotPortal } from '@/components/common/Portal';
 import { Typography } from '@mui/material';
+import * as S from './style';
 
 export const Header = () => {
   const auth = useAuthStore((state) => state.auth);
@@ -21,7 +21,12 @@ export const Header = () => {
       <S.Right>
         <ThemeButton />
         {auth ? 
-          <CustomToggle modalComponent={<BoxPortal><UserModal user={auth} /></BoxPortal>}>
+          <CustomToggle
+            modalComponent={<BoxNotPortal><UserModal user={auth} /></BoxNotPortal>}
+            absolute={true}
+            top="40px"
+            right="270px"
+          >
             <S.UserImage alt="User Image" src={auth?.profileImg ?? ''} />
           </CustomToggle> :
           <Link to={"/signin"}>
