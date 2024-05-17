@@ -14,14 +14,13 @@ const steps: StepType[] = [
 ]
 
 interface OrderProps {
-  orderState: NavigateOptions;
+  orderState?: NavigateOptions;
 }
 
-export const Order = ({ orderState }: OrderProps) => {
+export const Order = withOrderAccess(({ orderState }: OrderProps) => {
   const [order, setOrder] = useState<IOrder>({
-    ...orderState.state
+    ...orderState?.state
   });
-  console.log(order)
   
   const { Funnel, Step, nextClickHandler, prevClickHandler, currentStep } = useFunnel(steps[0].name);
   const onSetOrder = ({orderAddress, orderDate}: Omit<IOrder, "orderId" | "orderCarts" | "orderPrice">) => {
@@ -53,7 +52,4 @@ export const Order = ({ orderState }: OrderProps) => {
       </S.Block>
     </S.Section>
   )
-}
-
-// eslint-disable-next-line react-refresh/only-export-components
-export default withOrderAccess<OrderProps>(Order);
+})
