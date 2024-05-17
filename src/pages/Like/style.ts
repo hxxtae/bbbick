@@ -18,6 +18,6 @@ export const Block = styled(Box)`
 `;
 
 export const Title = styled(Typography)`
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 15px;
 `;

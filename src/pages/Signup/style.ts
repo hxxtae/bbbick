@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { Typography } from '@mui/material';
 
-export const Icon = styled.strong`
+export const Icon = styled(Typography)`
   display: inline-block;
   color: blue;
   margin-bottom: 20px;

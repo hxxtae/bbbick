@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import {
   Typography,
   ListItemText,
+  IconButton,
 } from '@mui/material';
 
 export const H1 = styled(Typography)`
@@ -22,7 +23,7 @@ export const Text = styled(ListItemText)`
   font-weight: 600;
 `;
 
-export const IconBox = styled.div`
+export const IconBox = styled(IconButton)`
   display: flex;
   align-items: center;
   padding-right: 10px;
