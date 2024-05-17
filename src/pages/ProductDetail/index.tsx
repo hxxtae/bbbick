@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Favorite } from '@mui/icons-material';
 
 import { useDetailFetchProduct } from '@/hooks/product/useDetailFetchProduct';
@@ -16,7 +16,8 @@ import * as S from './style';
 export const ProductDetail = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const { isProductLoading, isProductReLoading, product } = useDetailFetchProduct(state.id);
+  const path = useParams()
+  const { isProductLoading, isProductReLoading, product } = useDetailFetchProduct(state?.id || path?.bookid);
   const { isLoading, getCartItem } = useFetchCart();
   const { onAddCart } = useSetCart();
 
@@ -26,7 +27,7 @@ export const ProductDetail = () => {
       alert("잠시만 기다려주세요.");
       return;
     }
-    if (!product || !product.id) return;
+    if (!product || !product?.id) return;
     if (getCartItem(product.id)) {
       navigate("/cart");
     } else {
@@ -34,7 +35,7 @@ export const ProductDetail = () => {
       nowPay && navigate("/cart");
     }
   }
-
+  
   return (
     <S.Section sx={{ bgcolor: "bg.card" }}>
       <S.Block sx={{ bgcolor: "bg.main" }}>

@@ -9,6 +9,7 @@ import {
   TableRow,
 } from '@mui/material'
 import { getDateOfSubstr, numberFormat } from '@/utils/format';
+import { CycleLoading } from '@/components/common/Loading';
 import { NotFind } from '@/components/common/NotFind';
 import { Link } from 'react-router-dom';
 import * as S from './style';
@@ -16,13 +17,14 @@ import * as S from './style';
 
 interface HistoryTableProps {
   data?: IHistory[];
+  isInitLoading: boolean;
   onCancelOrder: (orderId: string) => void;
 }
 
-export const HistoryTable = ({ data, onCancelOrder }: HistoryTableProps) => {
+export const HistoryTable = ({ data, isInitLoading, onCancelOrder }: HistoryTableProps) => {
   return (
     <TableContainer component={Paper}>
-      {data?.length ? 
+      {isInitLoading ? <CycleLoading /> : data?.length ? 
         <Table sx={{ minWidth: 710 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -37,7 +39,7 @@ export const HistoryTable = ({ data, onCancelOrder }: HistoryTableProps) => {
               <Row key={row.id} row={row} onCancelOrder={onCancelOrder} />
             ))}
           </TableBody>
-        </Table> : <NotFind height='300px' />}
+        </Table> : <NotFind text='구매내역이 없습니다.' height='300px' />}
     </TableContainer>
   )
 }
@@ -62,7 +64,7 @@ const Row = ({ row, onCancelOrder }: RowProps) => {
             <S.Cancel>결제취소</S.Cancel>}
           <S.Info>{ row.orderId }</S.Info>
         </S.Group>
-        <Link to={`/recent/${row.id}`}>
+        <Link to={`/detail/${row.id}`} state={{id: row.id}}>
           <S.Title>{`[도서] ${row.name}`}</S.Title>
         </Link>
         <S.Group>
