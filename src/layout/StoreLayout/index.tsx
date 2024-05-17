@@ -1,5 +1,4 @@
-import { Outlet } from 'react-router-dom'
-
+import { StoreRouter } from '@/router/StoreRouter';
 import { Header } from '../Header';
 import { SideNav } from '../SideNav';
 import * as S from './style';
@@ -10,7 +9,7 @@ export const StoreLayout = () => {
       <Header/>
       <S.Container>
         <SideNav />
-        <Outlet />
+        <StoreRouter />
       </S.Container>
     </S.Wrapper>
   )
