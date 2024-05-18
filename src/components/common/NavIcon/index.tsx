@@ -28,7 +28,7 @@ interface NavIconProps {
 export const NavIcon = ({ name }: NavIconProps) => {
   return (
     <S.IconBox>
-      <S.Icon src={`${import.meta.env.BASE_URL}src/assets/icons/${iconURL[name]}`} />
+      <S.Icon src={`${import.meta.env.BASE_URL}assets/icons/${iconURL[name]}`} />
     </S.IconBox>
   )
 }
