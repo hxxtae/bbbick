@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  .css-10hburv-MuiTypography-root {
+  .css-10hburv-MuiTypography-root, 
+  .css-yb0lig {
     font-size: 14px !important;
     font-weight: inherit;
   }
@@ -11,12 +12,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   /* Dark */
-  .css-p51h6s-MuiInputBase-input-MuiOutlinedInput-input {
+  .css-p51h6s-MuiInputBase-input-MuiOutlinedInput-input, 
+  .css-5trap1 {
     font-size: 14px !important;
   }
 
   /* Light */
-  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input, 
+  .css-a3y1xb {
     font-size: 14px !important;
   }
 
