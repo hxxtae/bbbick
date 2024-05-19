@@ -1,6 +1,6 @@
 import { IProductForm } from './form';
 
-export type BooksKinds = 'recent' | 'best' | 'like';
+export type BooksKinds = 'recent' | 'best' | 'like' | 'createAt';
 export type OrderKinds = 'date' | 'price';
 export type CategoryKey = "010" | "020" | "030" | "040";
 export type CategoryValue1 = "경제 경영" | "자기계발" | "에세이" | "IT모바일";
