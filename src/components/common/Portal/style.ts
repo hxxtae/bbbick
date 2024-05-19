@@ -24,11 +24,10 @@ export const SideCloseButton = styled(ButtonBase)`
 `;
 
 export const BoxSection = styled(Box)`
-  position: fixed;
-  top: 50px;
-  right: 20px;
-  width: 300px;
-  max-width: 300px;
+  position: absolute;
+  max-width: 280px;
+  width: 280px;
+  z-index: 1;
 `;
 
 export const BoxCloseButton = styled(ButtonBase)`
@@ -38,4 +37,5 @@ export const BoxCloseButton = styled(ButtonBase)`
   width: 24px;
   height: 24px;
   border-radius: 5px;
+  z-index: 1;
 `;

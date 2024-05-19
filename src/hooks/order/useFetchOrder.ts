@@ -37,7 +37,7 @@ export const useFetchOrder = () => {
     return { cursor, posts };
   }
 
-  const { data, isFetchingNextPage, hasNextPage, fetchNextPage } = useInfiniteQuery({
+  const { data, isFetchingNextPage, hasNextPage, fetchNextPage, isLoading } = useInfiniteQuery({
     queryKey: queryKeys.order.all,
     queryFn: ({ pageParam }) => getOrderStorage(pageParam),
     getNextPageParam: ({ cursor }) => {
@@ -65,6 +65,7 @@ export const useFetchOrder = () => {
     historys: data?.pages.flatMap((item) => item.posts),
     isFetchingNextPage,
     hasNextPage,
-    fetchNextPage
+    fetchNextPage,
+    isLoading
   }
 }

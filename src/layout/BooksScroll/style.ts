@@ -1,16 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Chip, Typography } from '@mui/material';
 
-export const BtnGroup = styled.div`
-  display: flex;
-  gap: 10px;
-`;
-
-export const SubTitle = styled(Typography)`
-  font-size: 18px;
-  flex: 1;
-`;
-
 export const List = styled.ul`
   display: flex;
   flex-direction: column;

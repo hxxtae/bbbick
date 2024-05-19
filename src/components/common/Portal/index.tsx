@@ -63,6 +63,14 @@ const SidePortalLayout = ({ children, toggleModal }: PortalLayoutProps) => {
   )
 }
 
+export const BoxNotPortal = ({ children, toggleModal }: PortalProps) => {
+  return (
+    <BoxPortalLayout toggleModal={toggleModal}>
+      {cloneElement(children, {toggleModal})}
+    </BoxPortalLayout>
+  )
+}
+
 export const BoxPortal = ({ children, parent = document.body, toggleModal }: PortalProps) => {
   return createPortal(
     <BoxPortalLayout

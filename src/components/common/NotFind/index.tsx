@@ -2,12 +2,13 @@ import * as S from './style';
 
 interface NotFindProps {
   height: string;
+  text: string;
 }
 
-export const NotFind = ({ height }: NotFindProps) => {
+export const NotFind = ({ height, text }: NotFindProps) => {
   return (
     <S.Block height={height}>
-      <S.Text>구매내역이 없습니다.</S.Text>
+      <S.Text>{text}</S.Text>
     </S.Block>
   )
 }

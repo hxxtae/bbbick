@@ -75,7 +75,7 @@ export const Icon = ({ pathName }: IconProps) => {
     case '/like': {
       return <NavIcon name="like" />
     }
-    case '/ebooks': {
+    case '/recent': {
       return <NavIcon name="recent" />
     }
     case '/mypage': {

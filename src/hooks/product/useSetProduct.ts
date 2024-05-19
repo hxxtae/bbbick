@@ -7,6 +7,9 @@ import { localStorageKeys } from '@/constants/keys';
 import { IProductForm } from '@/interface/form';
 import { db } from '@/service/firebaseApp';
 import { ProductType } from '@/interface/products';
+import { LocalStore } from '@/store/localStore';
+
+const localImage = new LocalStore(localStorageKeys.files);
 
 export const useSetProduct = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +17,7 @@ export const useSetProduct = () => {
   
   const onSubmit = async (data: IProductForm = INIT_PRODUCT_DATA, id?: string) => {
     if (!data) return;
-    const files = JSON.parse(localStorage.getItem(localStorageKeys.files) ?? '[]');
+    const files = JSON.parse(localImage.get() ?? '[]');
     const { category1, category2 } = data;
     if (!category1 || !category2) return;
     if (!files || !files.length) {
@@ -50,7 +53,7 @@ export const useSetProduct = () => {
       console.error("[Error]: Product Add Error: ", error)
     } finally {
       // NOTE: 완료 후 기존 데이터 초기화
-      localStorage.setItem(localStorageKeys.files, "[]");
+      localImage.set("[]")
       setIsLoading(false);
       navigate("/");
     }

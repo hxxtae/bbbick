@@ -12,6 +12,11 @@ interface ModalToggleProps {
 interface CustomModalToggleProps {
   modalComponent: React.ReactElement;
   children: React.ReactElement;
+  classname?: string;
+  absolute?: boolean;
+  top?: string;
+  right?: string;
+  left?: string;
 }
 
 export const ButtonToggle = ({ children, toggleName, iconShow = true }: ModalToggleProps) => {
@@ -32,16 +37,29 @@ export const ButtonToggle = ({ children, toggleName, iconShow = true }: ModalTog
   )
 }
 
-export const CustomToggle = ({ modalComponent, children }: CustomModalToggleProps) => {
+export const CustomToggle = ({ modalComponent, children, classname = "parent1", absolute = false, top, right, left }: CustomModalToggleProps) => {
   const [open, setOpen] = useState(false);
 
   const toggleModal = () => {
     setOpen((prev) => !prev);
   }
 
+  if (absolute) {
+    return (
+      <div className={classname} style={{ position: "relative" }}>
+        <div onClick={toggleModal}>
+          {children}
+        </div>
+        <div style={{ position: "absolute", top, right, left }}>
+          {open && cloneElement(modalComponent, { toggleModal })}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <>
-      <div className="profile" onClick={toggleModal}>
+      <div className={classname} onClick={toggleModal}>
         {children}
       </div>
       {open && cloneElement(modalComponent, { toggleModal })}

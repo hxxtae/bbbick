@@ -17,6 +17,11 @@ export const Form = styled.form`
   justify-content: stretch;
   align-items: flex-end;
   gap: 10px;
+
+  & input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 `;
 
 export const Row = styled.div`

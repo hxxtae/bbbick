@@ -1,29 +1,30 @@
 import { Favorite } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 import { BOOK_CATEGORY_1, BOOK_CATEGORY_2 } from '@/constants/product';
 import { BooksKinds, CategoryKey } from '@/interface/products';
-import { numberFormat } from '@/utils/format';
 import { usePageFetchProduct } from '@/hooks/product/usePageFetchProduct';
 import { ObserveElement } from '@/components/common/ObserveElement';
-import * as S from './style';
+import { CycleLoading, LineLoading } from '@/components/common/Loading';
+import { NotFind } from '@/components/common/NotFind';
+import { numberFormat } from '@/utils/format';
 import { Divider } from '@mui/material';
-import React from 'react';
+import * as S from './style';
 
 interface BooksProps {
-  title: string;
   category: BooksKinds;
+  category1?: CategoryKey | "000";
+  category2?: string;
 }
 
-export const BooksScroll = ({ title, category }: BooksProps) => {
-  const { products, isFetchingNextPage, hasNextPage, fetchNextPage } = usePageFetchProduct(category);
+export const BooksScroll = ({ category, category1, category2 }: BooksProps) => {
+  const { products, isFetchingNextPage, hasNextPage, fetchNextPage, initLoading, isRefetching } = usePageFetchProduct({ category, category1, category2 });
   
   return (
     <S.List>
-      <S.BtnGroup>
-        <S.SubTitle sx={{ fontWeight: 600 }}>{title}</S.SubTitle>
-      </S.BtnGroup>
-      {products?.map((item) => (
+      {isRefetching && <LineLoading fixed={true} />}
+      {initLoading ? <CycleLoading/> : products?.length ? products.map((item) => (
         <React.Fragment key={item.id}>
           <S.Item  >
             <S.ImageBox>
@@ -58,7 +59,7 @@ export const BooksScroll = ({ title, category }: BooksProps) => {
           </S.Item>
           <Divider variant="fullWidth" />
         </React.Fragment>
-      ))}
+      )) : <NotFind text="상품이 존재하지 않습니다." height="0px" />}
       <ObserveElement isLoading={isFetchingNextPage} hasNext={hasNextPage} callback={fetchNextPage} />
     </S.List>
   )

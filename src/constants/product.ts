@@ -1,4 +1,4 @@
-import { Category1Type, Category2Type, CategoryKey } from '@/interface/products';
+import { CategoryObjValue1, CategoryObjValue2, CategoryKey } from '@/interface/products';
 
 // ------------------------
 // create product form
@@ -23,14 +23,14 @@ export const INIT_PRODUCT_DATA = {
   updateAt: null,
 }
 
-export const BOOK_CATEGORY_1: Category1Type = {
+export const BOOK_CATEGORY_1: CategoryObjValue1 = {
   "010": "경제 경영",
   "020": "자기계발",
   "030": "에세이",
   "040": "IT모바일",
 }
 
-export const BOOK_CATEGORY_2: { [key in CategoryKey]: Category2Type } = {
+export const BOOK_CATEGORY_2: { [key in CategoryKey]: CategoryObjValue2 } = {
   "010": {
     "B1": "경제",
     "B2": "투자/제테크",

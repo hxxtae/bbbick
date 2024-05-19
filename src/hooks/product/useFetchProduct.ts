@@ -1,8 +1,9 @@
 import { OrderByDirection, collection, getDocs, limit, orderBy, query } from 'firebase/firestore';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 
 import { BooksKinds, OrderKinds, ProductType } from '@/interface/products';
+import { FirebaseError } from 'firebase/app';
 import { queryKeys } from '@/constants/keys';
 import { db } from '@/service/firebaseApp';
 
@@ -21,7 +22,17 @@ export const useFetchProduct = (category: BooksKinds) => {
     setPickOrder(kind)
   }
 
-  const getOrder = () => {
+  const getQueryKey1 = () => {
+    if (category === "recent") return pickOrder;
+    return category;
+  }
+
+  const getQueryKey2 = () => {
+    if (category === "recent") return pickOrder === "date" ? orderDate : orderPrice;
+    return "desc";
+  }
+
+  const getOrderBy = () => {
     switch (category) {
       case "recent": {
         return pickOrder === "date" ? orderBy("publishDate", orderDate) : orderBy("price", orderPrice);
@@ -39,7 +50,7 @@ export const useFetchProduct = (category: BooksKinds) => {
   }
   
   const getProducts = async () => {
-    const q = query(collection(db, "products"), getOrder(), limit(5));
+    const q = query(collection(db, "products"), getOrderBy(), limit(5));
     try {
       const querySnapshot = await getDocs(q);
       const posts = querySnapshot.docs.map((doc) => ({
@@ -48,22 +59,22 @@ export const useFetchProduct = (category: BooksKinds) => {
       } as ProductType));
       return posts;
     } catch (error) {
-      console.error("[Error] Product Fetch Error: ", error)
+      if (error instanceof FirebaseError) {
+        console.error("[ERROR] Products Fetch Error ", error.message);
+      } else {
+        console.error("[ERROR] Products Fetch Error ", error);
+      }
     }
   }
 
-  const { isLoading, error, data, refetch } = useQuery({
-    queryKey: queryKeys.product.category(category),
+  const { isLoading, error, data } = useQuery({
+    queryKey: queryKeys.product.orders(getQueryKey1(), getQueryKey2()),
     queryFn: getProducts,
     staleTime: 1000 * 60 * 20, // 20분
     cacheTime: 1000 * 60 * 20, // 20분,
     refetchOnWindowFocus: false,
     retry: false,
   })
-
-  useEffect(() => {
-    refetch();
-  }, [orderDate, orderPrice, refetch])
   
   return {
     isLoading,

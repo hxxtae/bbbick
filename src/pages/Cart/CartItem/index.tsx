@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 import { useSetQuantityCart } from '@/hooks/cart/useSetQuantityCart';
 import { InputText } from '@/components/form/Input';
@@ -28,7 +29,9 @@ export const CartItem = ({ data }: CartItemProps) => {
         </S.TableCell_>
         {/* 이름 및 텍스트 */}
         <S.TableCell_ align="left" sx={{ maxWidth: 250 }}>
-          <S.Text>[도서] {data.name}</S.Text>
+          <Link to={`/detail/${data.id}`} state={{ id: data.id }}>
+            <S.Text>[도서] {data.name}</S.Text>
+          </Link>
           <S.Text>{numberFormat(data.price)}원&nbsp;/&nbsp;{data.writer}&nbsp;/&nbsp;{data.publisher}</S.Text>
         </S.TableCell_>
         {/* 수량 */}

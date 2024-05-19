@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 type withOrderAccessProps<T> = FunctionComponent<T>;
 
-export const withOrderAccess = <T extends {[key: string]: any}>(OrderComponent: withOrderAccessProps<T>) => {
+export const withOrderAccess = <T extends { [key: string]: any }>(OrderComponent: withOrderAccessProps<T>) => {
   return (props: T) => {
     // URL을 통한 주문 및 결제 라우터 접근 시 제한
     const locate = useLocation();
