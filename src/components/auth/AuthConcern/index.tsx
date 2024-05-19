@@ -24,7 +24,7 @@ export const AuthConcern = () => {
       <S.SubTitle>내 포인트</S.SubTitle>
       <S.PointBox>
         <S.PointIcon>
-          <S.Icon src={`${import.meta.env.BASE_URL}src/assets/icons/icon_point.png`} />
+          <S.Icon src={`${import.meta.env.BASE_URL}assets/icons/icon_point.png`} />
         </S.PointIcon>
         <S.PointText>{numberFormat(1000)}</S.PointText>
       </S.PointBox>

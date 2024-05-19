@@ -1,18 +1,46 @@
+import { queryKeys } from '@/constants/keys';
 import { db } from '@/service/firebaseApp'
+import { FirebaseError } from 'firebase/app';
 import { deleteDoc, doc } from 'firebase/firestore'
+import { useMutation, useQueryClient } from 'react-query';
 
 export const useDelProduct = () => {
-  
-  const delProduct = async (productId: string) => {
+  const queryClient = useQueryClient();
+
+  const setProductStoreOfRemove = async (productId: string) => {
     if (!productId) return;
     if (!confirm("상품을 삭제하시겠습니까?")) return;
-    
+
     try {
       await deleteDoc(doc(db, "products", productId));
-    } catch (err) {
-      console.error(`[Error]: Product Del Error: ${err}`)
+    } catch (error) {
+      if (error instanceof FirebaseError) {
+        console.error("[Error]: Product Delete Error: ", error.message);
+      } else {
+        console.error("[Error]: Product Delete Error: ", error);
+      }
     }
   }
 
-  return { delProduct }
+  const { isLoading, mutate } = useMutation((productId: string) => setProductStoreOfRemove(productId), {
+    mutationKey: queryKeys.product.all,
+    onSuccess: () => {
+      queryClient.invalidateQueries(queryKeys.product.all);
+      alert("상품을 삭제하였습니다.");
+    },
+    onError: (error) => {
+      if (error instanceof FirebaseError) {
+        console.error("[Error]: Product Delete Error: ", error.message);
+      } else {
+        console.error("[Error]: Product Delete Error: ", error);
+      }
+    }
+  })
+
+  const onRemoveProduct = (productId: string) => {
+    if (isLoading) return;
+    mutate(productId);
+  }
+
+  return { isLoading, onRemoveProduct }
 }
