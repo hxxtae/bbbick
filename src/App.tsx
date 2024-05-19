@@ -1,11 +1,10 @@
-import { AppRouter } from './router/AppRouter'
-import { AppLayout } from './AppLayout'
+import { AppLayout } from './layout/AppLayout'
+import AppRouter from './router/AppRouter'
 
 export const App = () => {
   return (
     <AppLayout>
-      <AppRouter />
+      <AppRouter/>
     </AppLayout>
   )
 }
-

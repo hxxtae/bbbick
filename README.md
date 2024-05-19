@@ -1,30 +1,56 @@
-# React + TypeScript + Vite
+# BBBick
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
+  <img src="https://github.com/hxxtae/bbbick/assets/79623316/7ba157a6-a23a-4723-9a48-72cca7dc0ae9" alt="메인이미지">
+</div>
 
-Currently, two official plugins are available:
+<br>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> 온라인 북 스토어 입니다.   
+> 프로젝트 진행 기간   
+> **2024.04** ~ **2024.05** (4주)   
 
-## Expanding the ESLint configuration
+<br>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+> 배포 URL:   
+> GitBook URL: 
 
-- Configure the top-level `parserOptions` property like this:
+<br>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+> 테스트 계정
+> 
+> [구매자]   
+> ID: customer@email.com   
+> PW: qwe123
+>
+> [판매자]   
+> ID: buyer@email.com   
+> PW: qwe123
+
+## 주요 기능
+
+### [최신 북, 베스트 셀러, 추천 책 골라보기]
+
+### [`구매자용` 구매내역 관리]
+
+### [`구매자용` 장바구니]
+
+### [`구매자용` 결제 프로세스]
+
+### [`구매자용` 마이페이지 관리]
+
+### [`판매자용` 상품등록 및 사움관리]
+
+## 기술 스택
+
+## 최적화
+
+## 트러블슈팅
+
+## 아키텍처
+
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. 프로젝트 아키텍쳐에 대해서 설명하시오.
+2. 프로젝트을 하면서 가장 어려웠던점은 무엇인가요?
+3. 프로젝트에서 모르는 부분이 있으면 어떻게 해결하셨나요?
+```
