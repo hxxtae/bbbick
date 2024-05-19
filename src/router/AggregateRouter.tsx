@@ -16,7 +16,6 @@ export const AggregateRouter = ({ route, children }: AggregateRouterProps) => {
     if (!auth?.uid) {
       return children;
     }
-    alert("이미 로그인 되었습니다.");
     return <Navigate to={"/"} replace state={{...locate}} />
   }
   
