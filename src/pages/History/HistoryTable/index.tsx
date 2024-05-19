@@ -74,7 +74,7 @@ const Row = ({ row, onCancelOrder }: RowProps) => {
         <S.Day>{`${getDateOfSubstr(row.orderDate ?? '')}`}</S.Day>
       </TableCell>
       <TableCell align="center">무료</TableCell>
-      <TableCell align="center">{row.deliverState ? "배송중" : "배송취소"}</TableCell>
+      <TableCell align="center">{row.deliverState ? "배송준비" : "배송취소"}</TableCell>
       <TableCell align="center">
         <S.CancelBtn
           variant="outlined"

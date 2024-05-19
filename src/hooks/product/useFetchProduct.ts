@@ -7,7 +7,7 @@ import { FirebaseError } from 'firebase/app';
 import { queryKeys } from '@/constants/keys';
 import { db } from '@/service/firebaseApp';
 
-export const useFetchProduct = (category: BooksKinds) => {
+export const useFetchProduct = (category: BooksKinds, limit_count: number = 5) => {
   const [orderDate, setOrderDate] = useState<OrderByDirection>("desc");
   const [orderPrice, setOrderPrice] = useState<OrderByDirection>("desc");
   const [pickOrder, setPickOrder] = useState<OrderKinds>('date');
@@ -43,14 +43,17 @@ export const useFetchProduct = (category: BooksKinds) => {
       case "like": {
         return orderBy("like", "desc");
       }
+      case "createAt": {
+        return orderBy("createAt", "desc");
+      }
       default: {
-        return orderBy("publishDate");
+        return orderBy("createAt", "desc");
       }
     }
   }
   
   const getProducts = async () => {
-    const q = query(collection(db, "products"), getOrderBy(), limit(5));
+    const q = query(collection(db, "products"), getOrderBy(), limit(limit_count));
     try {
       const querySnapshot = await getDocs(q);
       const posts = querySnapshot.docs.map((doc) => ({

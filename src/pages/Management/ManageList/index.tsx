@@ -10,8 +10,8 @@ import { ManageForm } from '../ManageForm';
 import * as S from './style';
 
 export const ManageList = () => {
-  const { products } = useFetchProduct('recent');
-  const { delProduct } = useDelProduct();
+  const { products } = useFetchProduct("createAt", 100);
+  const { onRemoveProduct } = useDelProduct();
   
   return (
     <S.Section>
@@ -41,7 +41,7 @@ export const ManageList = () => {
               <ButtonToggle toggleName='수정하기' iconShow={false}>
                 <SidePortal children={<ManageForm productData={item} />} />
               </ButtonToggle>
-              <S.DelButton variant="outlined" onClick={() => delProduct(item.id)}>삭제하기</S.DelButton>
+              <S.DelButton variant="outlined" onClick={() => onRemoveProduct(item.id)}>삭제하기</S.DelButton>
             </S.ButtonGroup>
           </S.Item>
         ))}

@@ -26,7 +26,7 @@ export const ManageForm = ({ productData }: ManageFormProps) => {
   const selectData2 = Object.entries(BOOK_CATEGORY_2[watch('category1') as CategoryKey ?? productData?.category1 ?? '010']);
   
   return (
-    <S.Form onSubmit={handleSubmit((e) => onSubmit(e, productData?.id))}>
+    <S.Form onSubmit={handleSubmit((data) => onSubmit(data, productData?.id))}>
       <S.Row>
         <Files register={register("productImg_url")} initFiles={productData?.productImg_url} />
       </S.Row>
