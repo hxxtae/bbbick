@@ -1,4 +1,4 @@
-import { deleteObject, getDownloadURL, listAll, ref, uploadBytes } from 'firebase/storage';
+import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { useEffect, useState } from 'react';
 
 import { IFilePath, IProductFiles } from '@/interface/form';

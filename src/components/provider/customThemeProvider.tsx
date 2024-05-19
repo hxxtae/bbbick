@@ -1,6 +1,6 @@
 import { useTheme } from '@/hooks/common/useTheme';
 import { getDesignTokens } from '@/styles/theme';
-import { ThemeProvider, createTheme } from '@mui/material';
+import { ThemeOptions, ThemeProvider, createTheme } from '@mui/material';
 
 interface CustomThemeProviderProps {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ interface CustomThemeProviderProps {
 
 export const CustomThemeProvider = ({ children }: CustomThemeProviderProps) => {
   const { mode } = useTheme();
-  const theme = createTheme(getDesignTokens(mode));
+  const theme = createTheme(getDesignTokens(mode) as ThemeOptions);
 
   return (
     <ThemeProvider theme={theme}>

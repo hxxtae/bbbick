@@ -1,30 +1,14 @@
-import { PaletteMode, colors } from '@mui/material';
+import { PaletteMode, ThemeOptions, colors } from '@mui/material';
 import { typography } from '@mui/system';
 
 export const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
-    ...(mode === 'light' ? lightPalette : darkPalette),
     mode,
+    ...(mode === 'light' ? lightPalette : darkPalette),
   },
   typography: {
     ...typography,
     fontSize: 14,
-  },
-  breakpoints: {
-    key: {
-      0: "xs",
-      1: "sm",
-      2: "md",
-      3: "lg",
-      4: "xl"
-    },
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 900,
-      lg: 1200,
-      xl: 1536
-    },
   },
 });
 
@@ -90,4 +74,4 @@ const darkPalette = {
     main: '#FFFFFF',
     sub: '#B3B3B3',
   },
-}
+} as ThemeOptions
