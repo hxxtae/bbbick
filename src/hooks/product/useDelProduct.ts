@@ -8,9 +8,6 @@ export const useDelProduct = () => {
   const queryClient = useQueryClient();
 
   const setProductStoreOfRemove = async (productId: string) => {
-    if (!productId) return;
-    if (!confirm("상품을 삭제하시겠습니까?")) return;
-
     try {
       await deleteDoc(doc(db, "products", productId));
     } catch (error) {
@@ -38,8 +35,11 @@ export const useDelProduct = () => {
   })
 
   const onRemoveProduct = (productId: string) => {
+    if (!productId) return;
     if (isLoading) return;
-    mutate(productId);
+    if (confirm("상품을 삭제하시겠습니까?")) {
+      mutate(productId);
+    }    
   }
 
   return { isLoading, onRemoveProduct }
