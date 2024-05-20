@@ -24,7 +24,7 @@ export const Files = ({ register, initFiles }: FileProps) => {
       </S.ImageSection>
       <S.Label htmlFor='productImage' onChange={addFile}>
         상품 이미지 추가하기
-        <input type='file' multiple id="productImage" style={{ display: 'none' }} accept=".jpg,.jpeg,.png" {...register}  />
+        <input type='file' multiple id="productImage" style={{ display: 'none' }} accept=".jpg,.jpeg,.webp" {...register}  />
       </S.Label>
     </S.Section>
   );

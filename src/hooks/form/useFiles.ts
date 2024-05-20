@@ -56,23 +56,13 @@ export const useFiles = ({ basePath = "images", initFiles }: FilesProps) => {
   }
 
   useEffect(() => {
-    // listAll(imageListRef).then((response) => {
-    //   response.items.forEach((item) => {
-    //     getDownloadURL(item).then((url) => {
-    //       setImageList((prev) => [...prev, url]);
-    //       setImageLoading(false);
-    //     });
-    //   });
-    // });
-
-
     if (initFiles) {
-      localStorage.setItem(localStorageKeys.files, JSON.stringify(initFiles));
+      localFile.set(JSON.stringify(initFiles))
     }
     setImageLoading(false);
 
     return () => {
-      localStorage.setItem(localStorageKeys.files, JSON.stringify([]));
+      localFile.set(JSON.stringify([]))
     }
   }, []);
 
@@ -82,5 +72,4 @@ export const useFiles = ({ basePath = "images", initFiles }: FilesProps) => {
     addFile,
     delFile
   }
-
 }

@@ -135,13 +135,8 @@ export const useSetAuth = () => {
       alert("로그인 후 다시 시도해주세요.");
       return;
     }
-    if (!imageNameValidate(imageFile.name) &&
-      ["jpg", "jpeg"].some((name) => name === imageFile.type.split("/")[-1])) {
-      alert("지원하지 않는 확장자입니다. (.jpg, .jpeg 만 가능)");
-      return;
-    }
     const authRef = authApp.currentUser;
-    const imageName = `IMG_${authRef.uid}.jpg`;
+    const imageName = `IMG_${authRef.uid}.webp`;
     const imageRef = ref(storage, `${pathObj.storage.PROFILE_IMG}/${imageName}`);
 
     try {
@@ -222,8 +217,8 @@ export const useSetAuth = () => {
     }
     const imageFile = e.target.files[0];
     if (!imageNameValidate(imageFile.name) ||
-      !["jpg", "jpeg"].some((name) => name === imageFile.type.split("/")[1])) {
-      alert("지원하지 않는 확장자입니다. (.jpg, .jpeg 만 가능)");
+      !["jpg", "jpeg", "webp"].some((name) => name === imageFile.type.split("/")[1])) {
+      alert("지원하지 않는 확장자입니다. (.jpg, .jpeg, .webp 만 가능)");
       return;
     }
     setAuthStoreOfProfileImg({profileImg: imageFile})
