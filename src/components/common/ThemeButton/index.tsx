@@ -1,5 +1,6 @@
 import { useTheme } from '@/hooks/common/useTheme';
-import { Brightness7, DarkMode } from '@mui/icons-material';
+import Brightness7Icon from '@icons/Brightness7';
+import DarkModeIcon from '@icons/DarkMode';
 import * as S from './style';
 
 export const ThemeButton = () => {
@@ -7,7 +8,7 @@ export const ThemeButton = () => {
 
   return (
     <S.Button onClick={() => setMode()}>
-      {mode === "light" ? <DarkMode/> : <Brightness7/> }
+      {mode === "light" ? <DarkModeIcon/> : <Brightness7Icon/> }
     </S.Button>
   )
 }

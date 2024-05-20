@@ -1,16 +1,14 @@
 import styled from '@emotion/styled';
-import {
-  Box,
-  Container,
-  Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Button
-} from '@mui/material';
+import Box from '@muiDom/Box';
+import Container from '@muiDom/Container';
+import Typography from '@muiDom/Typography';
+import Table from '@muiDom/Table';
+import TableBody from '@muiDom/TableBody';
+import TableCell from '@muiDom/TableCell';
+import TableContainer from '@muiDom/TableContainer';
+import TableHead from '@muiDom/TableHead';
+import TableRow from '@muiDom/TableRow';
+import Button from '@muiDom/Button';
 
 export const Section = styled(Container)`
   padding-top: 20px;

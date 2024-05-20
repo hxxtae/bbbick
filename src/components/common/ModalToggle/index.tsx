@@ -1,4 +1,4 @@
-import { Add } from '@mui/icons-material';
+import AddIcon from '@icons/Add';
 import { cloneElement, useState } from 'react'
 
 import * as S from './style';
@@ -29,7 +29,7 @@ export const ButtonToggle = ({ children, toggleName, iconShow = true }: ModalTog
   return (
     <div>
       <S.Add variant={'contained'} sx={{ fontSize: 14 }} onClick={toggleModal}>
-        {iconShow && <Add sx={{ mr: "5px" }} />}
+        {iconShow && <AddIcon sx={{ mr: "5px" }} />}
         {toggleName}
       </S.Add>
       {open && cloneElement(children, { toggleModal })}

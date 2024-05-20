@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
 import { styled as style } from '@mui/system';
-import { Box, Button, Paper, Typography } from '@mui/material';
+import Box from '@muiDom/Box';
+import Button from '@muiDom/Button';
+import Paper from '@muiDom/Paper';
+import Typography from '@muiDom/Typography';
 
 export const Section = styled(Paper)`
   position: relative;

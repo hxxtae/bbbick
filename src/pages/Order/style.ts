@@ -1,6 +1,8 @@
 import { styled as style } from '@mui/system';
 import styled from '@emotion/styled';
-import { Box, Container, Typography } from '@mui/material';
+import Box from '@muiDom/Box';
+import Container from '@muiDom/Container';
+import Typography from '@muiDom/Typography';
 
 export const Section = styled(Container)`
   padding-top: 20px;

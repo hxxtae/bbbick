@@ -1,5 +1,5 @@
-import { Favorite } from '@mui/icons-material';
-import { Divider } from '@mui/material'
+import FavoriteIcon from '@icons/Favorite';
+import Divider from '@muiDom/Divider';
 import { Link } from 'react-router-dom'
 import React from 'react'
 
@@ -24,7 +24,7 @@ export const Book = React.memo(({ item, category }: BookProps) => {
             </Link>
           </S.ImageWrapper>
           <S.ImageBottom sx={{ bgcolor: "bg.card" }}>
-            <Favorite sx={{ fontSize: "16px", color: "error.dark" }} />
+            <FavoriteIcon sx={{ fontSize: "16px", color: "error.dark" }} />
             <S.Like sx={{ fontSize: "14px" }}>{ item.like }</S.Like>
           </S.ImageBottom>
         </S.ImageBox>

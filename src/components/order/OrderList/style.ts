@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
-import { Box, Button, ListItem, ListItemText, Typography } from '@mui/material';
+import Box  from '@muiDom/Box';
+import Button from '@muiDom/Button';
+import ListItem from '@muiDom/ListItem';
+import ListItemText from '@muiDom/ListItemText';
+import Typography from '@muiDom/Typography';
 import { styled as style } from '@mui/system';
 
 export const Wrapper = styled(Box)`

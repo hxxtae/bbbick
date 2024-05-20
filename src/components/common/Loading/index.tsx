@@ -1,4 +1,5 @@
-import { CircularProgress, LinearProgress } from '@mui/material';
+import CircularProgress from '@muiDom/CircularProgress';
+import LinearProgress from '@muiDom/LinearProgress';
 import * as S from './style';
 
 interface LineLoadingProps {

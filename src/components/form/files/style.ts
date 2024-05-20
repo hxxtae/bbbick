@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { Box, ButtonBase } from '@mui/material';
+import Box from '@muiDom/Box';
+import ButtonBase from '@muiDom/ButtonBase';
 
 export const Section = styled(Box)`
   flex: 1;

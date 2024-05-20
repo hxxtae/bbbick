@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import { Box, ButtonBase } from '@mui/material';
+import Box from '@muiDom/Box';
+import ButtonBase from '@muiDom/Box';
 
 export const Overlay = styled(Box)`
   position: fixed;

@@ -1,4 +1,6 @@
-import { Divider, List, Typography } from '@mui/material';
+import Divider from '@muiDom/Divider';
+import List from '@muiDom/List';
+import Typography from '@muiDom/Typography';
 import { usePayment } from '@/hooks/common/usePayment';
 import { numberFormat } from '@/utils/format';
 import { IOrder } from '@/interface/order';

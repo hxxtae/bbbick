@@ -4,7 +4,8 @@ import { useForm } from 'react-hook-form';
 import { useCallback, useState } from 'react';
 
 import { styled as style } from '@mui/system';
-import { Box, Chip } from '@mui/material';
+import Box from '@muiDom/Box';
+import Chip from '@muiDom/Chip';
 import { Select } from '@/components/form/Input';
 import styled from '@emotion/styled';
 

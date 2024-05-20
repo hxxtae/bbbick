@@ -1,8 +1,8 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import { CheckCircleOutline } from '@mui/icons-material';
-import { Alert } from '@mui/material';
+import CheckCircleOutlineIcon from '@icons/CheckCircleOutline';
+import Alert from '@muiDom/Alert';
 import * as S from './style';
 
 const INIT_TIME = 10;
@@ -35,7 +35,7 @@ export const OrderResult = () => {
   return (
     <S.Wrapper>
       <S.Content>
-        <Alert icon={<CheckCircleOutline fontSize="inherit" />} severity="success">
+        <Alert icon={<CheckCircleOutlineIcon fontSize="inherit" />} severity="success">
           결제 성공
         </Alert>
         <S.BtnGroup>

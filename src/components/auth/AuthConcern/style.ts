@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { styled as style } from '@mui/system';
-import { Box, Typography } from '@mui/material';
+import Box from '@muiDom/Box';
+import Typography from '@muiDom/Typography';
 
 export const SubTitle = styled(Typography)`
   font-size: 16px;

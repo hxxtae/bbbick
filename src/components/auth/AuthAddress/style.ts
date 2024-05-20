@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { Button, Typography } from '@mui/material';
+import Button from '@muiDom/Button';
+import Typography from '@muiDom/Typography';
 
 export const SubTitle = styled(Typography)`
   font-size: 16px;

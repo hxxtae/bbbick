@@ -22,7 +22,13 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./src/*"
+        "./src/*",
+      ],
+      "@icons/*": [
+        "node_modules/@mui/icons-material/*"
+      ],
+      "@muiDom/*": [
+        "node_modules/@mui/material/*"
       ]
     }
   },

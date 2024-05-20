@@ -1,4 +1,5 @@
-import { ChevronRight, Edit } from '@mui/icons-material';
+import EditIcon from '@icons/Edit';
+import ChevronRightIcon from '@icons/ChevronRight';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 
@@ -75,7 +76,7 @@ export const AuthNickName = ({ nickname }: AuthNickNameProps) => {
           <S.EditText>
             {nickname}
           </S.EditText>
-          <ChevronRight />
+          <ChevronRightIcon />
         </S.EditRow>
       )}
     </S.EditBox>
@@ -96,7 +97,7 @@ export const AuthPassword = () => {
         <S.EditText>
           메일로 변경하기
         </S.EditText>
-        <ChevronRight />
+        <ChevronRightIcon />
       </S.EditRow>
     </S.EditBox>
   )
@@ -108,7 +109,7 @@ export const AuthProfileImage = ({ edit, children }: AuthProfileImgProps) => {
   if (edit) {
     return (
       <S.Label htmlFor='profileImage' onChange={setAuthProfileImg}>
-        <S.IconBox><Edit sx={{ width: "14px", height: "14px"}}/></S.IconBox>
+        <S.IconBox><EditIcon sx={{ width: "14px", height: "14px"}}/></S.IconBox>
         {children}
         <input type='file' multiple id="profileImage" style={{ display: 'none' }} accept=".jpg,.jpeg,.png" />
       </S.Label>

@@ -1,4 +1,6 @@
-import { Box, Button, Typography } from '@mui/material';
+import Box from '@muiDom/Box';
+import Button from '@muiDom/Button';
+import Typography from '@muiDom/Typography';
 import { styled as style } from '@mui/system';
 import styled from '@emotion/styled';
 

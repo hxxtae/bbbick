@@ -1,9 +1,7 @@
 import styled from '@emotion/styled';
-import {
-  Typography,
-  ListItemText,
-  IconButton,
-} from '@mui/material';
+import Typography from '@muiDom/Typography';
+import ListItemText from '@muiDom/ListItemText';
+import IconButton from '@muiDom/IconButton';
 
 export const H1 = styled(Typography)`
   font-size: 16px;

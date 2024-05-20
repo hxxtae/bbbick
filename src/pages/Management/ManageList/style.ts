@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
 import { styled as style } from '@mui/system';
-import { Box, Button, Chip, Typography } from '@mui/material';
+import Box from '@muiDom/Box';
+import Button from '@muiDom/Button';
+import Chip from '@muiDom/Chip';
+import Typography from '@muiDom/Typography';
 
 export const Section = styled(Box)`
   overflow-y: scroll;

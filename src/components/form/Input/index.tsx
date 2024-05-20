@@ -1,5 +1,6 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
-import { FormControl, MenuItem } from '@mui/material';
+import FormControl from '@muiDom/FormControl';
+import MenuItem from '@muiDom/MenuItem';
 import { PropsWithChildren } from 'react';
 
 import * as S from './style';

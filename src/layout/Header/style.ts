@@ -1,4 +1,5 @@
-import { Avatar, Typography,  } from '@mui/material';
+import Avatar from '@muiDom/Avatar';
+import Typography from '@muiDom/Typography';
 import styled from '@emotion/styled';
 import { LAYOUT_OF_HEIGHT, LAYOUT_OF_WIDTH } from '@/constants/style';
 

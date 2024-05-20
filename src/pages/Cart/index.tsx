@@ -1,4 +1,5 @@
-import { Paper, TableContainer } from '@mui/material';
+import Paper from '@muiDom/Paper';
+import TableContainer from '@muiDom/TableContainer';
 import { useFetchCart } from '@/hooks/cart/useFetchCart';
 import { useAuthStore } from '@/store/useAuthStore';
 import { CartPayment } from './CartPayment';

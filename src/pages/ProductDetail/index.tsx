@@ -1,5 +1,5 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { Favorite } from '@mui/icons-material';
+import FavoriteIcon from '@icons/Favorite';
 
 import { useDetailFetchProduct } from '@/hooks/product/useDetailFetchProduct';
 import { BOOK_CATEGORY_1, BOOK_CATEGORY_2 } from '@/constants/product';
@@ -60,7 +60,7 @@ export const ProductDetail = () => {
                   </S.Row>
                   <S.Row>
                     <S.Text sx={{ display: "flex", alignItems: "center", gap: "5px" }}>
-                      <Favorite sx={{ fontSize: "16px", color: "error.dark" }} />
+                      <FavoriteIcon sx={{ fontSize: "16px", color: "error.dark" }} />
                       {product.like}
                     </S.Text>|
                     <S.Text>판매지수 {product.saleRate}</S.Text>

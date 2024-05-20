@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
-import { Box, Chip, Typography } from '@mui/material';
+import Box from '@muiDom/Box';
+import Chip from '@muiDom/Chip';
+import Typography from '@muiDom/Typography';
 
 export const Item = styled(Box)`
   display: flex;

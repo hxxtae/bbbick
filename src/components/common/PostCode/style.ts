@@ -1,5 +1,5 @@
 import { styled as style } from '@mui/system'
-import { Button } from '@mui/material';
+import Button from '@muiDom/Button';
 
 export const OpenAddress = style(Button)(() => ({
   flexShrink: 0,

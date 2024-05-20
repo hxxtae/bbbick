@@ -1,13 +1,11 @@
 import { PropsWithChildren } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import {
-  Badge,
-  List,
-  ListItem,
-  ListItemButton
-} from '@mui/material';
+import Badge from '@muiDom/Badge';
+import List from '@muiDom/List';
+import ListItem from '@muiDom/ListItem';
+import ListItemButton from '@muiDom/ListItemButton';
 import { BadgeBoxProps, HeadProps, IconProps, LinkProps } from '@/interface/nav';
-import { Search } from '@mui/icons-material';
+import SearchIcon from '@icons/Search';
 import { NavIcon } from '@/components/common/NavIcon';
 import * as S from './style';
 
@@ -91,7 +89,7 @@ export const Icon = ({ pathName }: IconProps) => {
       return <NavIcon name="setting" />
     }
     case '/search': {
-      return <Search />
+      return <SearchIcon />
     }
     default: {
       break;

@@ -1,6 +1,9 @@
 import { styled as style } from '@mui/system';
 import styled from '@emotion/styled';
-import { Box, Button, Paper, Typography } from '@mui/material';
+import Box from '@muiDom/Box';
+import Button from '@muiDom/Button';
+import Paper from '@muiDom/Paper';
+import Typography from '@muiDom/Typography';
 
 export const Block = styled(Box)`
   display: flex;

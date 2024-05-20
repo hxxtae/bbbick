@@ -1,10 +1,8 @@
 import styled from '@emotion/styled';
-import {
-  Typography,
-  TableCell,
-  TableRow,
-  Button
-} from '@mui/material';
+import Typography from '@muiDom/Typography';
+import TableCell from '@muiDom/TableCell';
+import TableRow from '@muiDom/TableRow';
+import Button from '@muiDom/Button';
 
 export const Form = styled.form`
 

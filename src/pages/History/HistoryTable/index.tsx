@@ -1,13 +1,11 @@
-import { IHistory } from '@/interface/order'
-import {
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from '@mui/material'
+import { IHistory } from '@/interface/order';
+import Paper from '@muiDom/Paper';
+import Table from '@muiDom/Table';
+import TableBody from '@muiDom/TableBody';
+import TableCell from '@muiDom/TableCell';
+import TableContainer from '@muiDom/TableContainer';
+import TableHead from '@muiDom/TableHead';
+import TableRow from '@muiDom/TableRow';
 import { getDateOfSubstr, numberFormat } from '@/utils/format';
 import { CycleLoading } from '@/components/common/Loading';
 import { NotFind } from '@/components/common/NotFind';

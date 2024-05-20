@@ -5,7 +5,7 @@ import { useAuthStore } from '@/store/useAuthStore';
 import { CustomToggle } from '@/components/common/ModalToggle';
 import { UserModal } from '@/components/common/UserModal';
 import { BoxNotPortal } from '@/components/common/Portal';
-import { Typography } from '@mui/material';
+import Typography from '@muiDom/Typography';
 import * as S from './style';
 
 export const Header = () => {

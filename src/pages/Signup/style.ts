@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Typography } from '@mui/material';
+import Typography from '@muiDom/Typography';
 
 export const Icon = styled(Typography)`
   display: inline-block;

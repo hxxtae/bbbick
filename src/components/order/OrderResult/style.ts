@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
-import { Box, Button, Typography } from '@mui/material';
+import Box from '@muiDom/Box';
+import Button from '@muiDom/Button';
+import Typography from '@muiDom/Typography';
 
 export const Wrapper = styled(Box)`
   flex: 1;

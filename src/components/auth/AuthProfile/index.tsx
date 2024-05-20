@@ -1,4 +1,4 @@
-import { Avatar } from '@mui/material';
+import Avatar from '@muiDom/Avatar';
 import { useState } from 'react';
 
 import { AuthEmail, AuthNickName, AuthPassword, AuthProfileImage } from '../AuthEdit';

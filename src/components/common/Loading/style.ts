@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Box } from "@mui/material"
+import Box from "@muiDom/Box"
 
 export const Wrapper = styled(Box)<{ $fixed: boolean }>`
   position: ${({ $fixed }) => $fixed ? "fixed" : "relative"};

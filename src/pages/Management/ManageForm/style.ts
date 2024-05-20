@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Button } from '@mui/material';
+import Button from '@muiDom/Button';
 
 export const Form = styled.form`
   display: flex;

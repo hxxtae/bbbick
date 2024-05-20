@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { Paper, Typography } from '@mui/material';
+import Paper from '@muiDom/Paper';
+import Typography from '@muiDom/Typography';
 
 export const Block = styled(Paper)<{height: string}>`
   display: flex;

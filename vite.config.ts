@@ -12,6 +12,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src/'),
+      '@icons': path.resolve(__dirname, 'node_modules/@mui/icons-material'),
+      '@muiDom': path.resolve(__dirname, 'node_modules/@mui/material'),
     },
   },
 });

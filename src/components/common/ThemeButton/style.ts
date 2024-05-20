@@ -1,4 +1,4 @@
-import { ButtonBase } from '@mui/material'
+import ButtonBase from '@muiDom/ButtonBase';
 import styled from '@emotion/styled';
 
 export const Button = styled(ButtonBase)`

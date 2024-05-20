@@ -1,4 +1,4 @@
-import { Close } from '@mui/icons-material';
+import CloseIcon from '@icons/Close';
 import { createPortal } from 'react-dom';
 import { cloneElement, useEffect, useRef } from 'react';
 
@@ -37,7 +37,7 @@ const BoxPortalLayout = ({ children, toggleModal }: PortalLayoutProps) => {
       <S.BoxSection ref={ref}>
         {children}
         <S.BoxCloseButton sx={{ color: "text.main" }} onClick={toggleModal}>
-          <Close sx={{ width: 1, height: 1}} />
+          <CloseIcon sx={{ width: 1, height: 1}} />
         </S.BoxCloseButton>
       </S.BoxSection>
     </>
@@ -56,7 +56,7 @@ const SidePortalLayout = ({ children, toggleModal }: PortalLayoutProps) => {
       }}>
         {children}
         <S.SideCloseButton sx={{ color: "text.main" }} onClick={toggleModal}>
-          <Close sx={{ width: 1, height: 1}} />
+          <CloseIcon sx={{ width: 1, height: 1}} />
         </S.SideCloseButton>
       </S.SideSection>
     </>

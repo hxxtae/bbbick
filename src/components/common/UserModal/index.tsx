@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
 import { useSignout } from '@/hooks/auth/useSignout';
-import { ExitToApp } from '@mui/icons-material';
+import ExitToAppIcon from '@icons/ExitToApp';
 import { IAuth } from '@/interface/auth';
-import { Avatar } from '@mui/material';
+import Avatar from '@muiDom/Avatar';
 import * as S from './style';
 
 interface UserModalProps {
@@ -33,7 +33,7 @@ export const UserModal = ({ user, toggleModal }: UserModalProps) => {
       <S.FootBlock>
         <S.UserInfoWrapper>
           <S.UserSignOut onClick={onSignout}>
-            <ExitToApp sx={{ mr: "8px" }} />로그아웃
+            <ExitToAppIcon sx={{ mr: "8px" }} />로그아웃
           </S.UserSignOut>
         </S.UserInfoWrapper>
       </S.FootBlock>

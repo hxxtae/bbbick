@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { Container, Typography } from '@mui/material';
+import Container from '@muiDom/Container';
+import Typography from '@muiDom/Typography';
 
 export const Section = styled(Container)`
   

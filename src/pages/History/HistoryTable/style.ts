@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
 import { styled as style } from '@mui/system';
-import { Box, Button, TableCell, Typography } from '@mui/material';
+import Box from '@muiDom/Box';
+import Button from '@muiDom/Button';
+import TableCell from '@muiDom/TableCell';
+import Typography from '@muiDom/Typography';
 
 export const TableCell_ = styled(TableCell)`
   font-weight: 600;
