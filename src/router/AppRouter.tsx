@@ -27,6 +27,3 @@ export const AppRouter = () => {
 
 // eslint-disable-next-line react-refresh/only-export-components
 export default withAuthSync(AppRouter)
-
-// ref: https://dev.to/iamandrewluca/react-lazy-without-default-export-4b65
-// ref: https://react.dev/reference/react/lazy

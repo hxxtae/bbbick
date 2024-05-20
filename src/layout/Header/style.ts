@@ -15,6 +15,12 @@ export const Left = styled.div`
   
 `;
 
+export const Img = styled.img`
+  display: inline-block;
+  height: 24px;
+  min-height: 24px;
+`;
+
 export const Right = styled.div`
   display: flex;
   align-items: center;

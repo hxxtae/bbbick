@@ -13,13 +13,15 @@ export const GlobalStyle = createGlobalStyle`
 
   /* Dark */
   .css-p51h6s-MuiInputBase-input-MuiOutlinedInput-input, 
-  .css-5trap1 {
+  .css-5trap1,
+  .css-1n49kb3 {
     font-size: 14px !important;
   }
 
   /* Light */
   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input, 
-  .css-a3y1xb {
+  .css-a3y1xb, 
+  .css-1j6064a {
     font-size: 14px !important;
   }
 

@@ -15,7 +15,7 @@ export const Header = () => {
     <S.Section>
       <S.Left>
         <Link to={"/"}>
-          <S.Logo sx={{ color: "primary.main"}}>BBBick</S.Logo>
+          <S.Img src={`${import.meta.env.BASE_URL}assets/image/BBBick_title.png`}></S.Img>
         </Link>
       </S.Left>
       <S.Right>

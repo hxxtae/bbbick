@@ -63,11 +63,10 @@ export const useSetProduct = () => {
       createAt: submitDate,
       updateAt: null
     }
-    const updateData: Omit<ProductType, "like" | "saleRate" | "id"> = {
+    const updateData: Omit<ProductType, "like" | "saleRate" | "id" | "createAt"> = {
       ...data,
       productImg_url: [...files],
       updateAt: submitDate,
-      createAt: null
     }
     const formData = id ? updateData : createData;
 
@@ -78,7 +77,7 @@ export const useSetProduct = () => {
     mutationKey: queryKeys.product.all,
     onSuccess: () => {
       queryClient.invalidateQueries(queryKeys.product.all);
-      console.log("신규 상품이 등록되었습니다.");
+      console.log("상품이 등록 및 수정되었습니다.");
 
       // NOTE: 완료 후 기존 데이터 초기화
       localImage.set("[]");
