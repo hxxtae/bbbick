@@ -16,4 +16,23 @@ export default defineConfig({
       '@muiDom': path.resolve(__dirname, 'node_modules/@mui/material'),
     },
   },
+  build: {
+    rollupOptions: {
+        output: {
+          manualChunks: {
+            firebase: [
+              'firebase/app',
+              'firebase/auth',
+              'firebase/storage',
+              'firebase/firestore',
+            ],
+            react: [
+              'react-dom',
+              'react-query',
+              'react-router-dom'
+            ],
+          }
+        },
+    },
+},
 });
