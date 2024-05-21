@@ -1,7 +1,7 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
+import { PropsWithChildren } from 'react';
 import FormControl from '@muiDom/FormControl';
 import MenuItem from '@muiDom/MenuItem';
-import { PropsWithChildren } from 'react';
 
 import * as S from './style';
 

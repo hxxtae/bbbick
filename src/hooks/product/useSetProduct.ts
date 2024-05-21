@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from 'react-query';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore/lite';
 import { useNavigate } from 'react-router-dom';
 import { FirebaseError } from 'firebase/app';
 

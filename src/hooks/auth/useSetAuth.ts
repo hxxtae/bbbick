@@ -1,7 +1,7 @@
 import { getAuth, sendPasswordResetEmail, updateProfile } from 'firebase/auth';
 import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { useMutation, useQueryClient } from 'react-query';
-import { doc, updateDoc } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore/lite';
 import { FirebaseError } from 'firebase/app';
 import React from 'react';
 

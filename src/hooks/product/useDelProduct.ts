@@ -1,7 +1,7 @@
 import { queryKeys } from '@/constants/keys';
 import { db } from '@/service/firebaseApp'
 import { FirebaseError } from 'firebase/app';
-import { deleteDoc, doc } from 'firebase/firestore'
+import { deleteDoc, doc } from 'firebase/firestore/lite'
 import { useMutation, useQueryClient } from 'react-query';
 
 export const useDelProduct = () => {

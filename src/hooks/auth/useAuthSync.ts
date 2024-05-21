@@ -4,7 +4,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app, db } from '@/service/firebaseApp';
 import { IAuth } from '@/interface/auth';
 import { useAuthStore } from '@/store/useAuthStore'
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore/lite';
 
 export const useAuthSync = () => {
   const [isLoading, setIsLoading] = useState(true);

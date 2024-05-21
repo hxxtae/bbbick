@@ -1,4 +1,4 @@
-import { OrderByDirection, collection, getDocs, limit, orderBy, query } from 'firebase/firestore';
+import { OrderByDirection, collection, getDocs, limit, orderBy, query } from 'firebase/firestore/lite';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 

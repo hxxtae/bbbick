@@ -1,4 +1,4 @@
-import { doc, updateDoc, writeBatch } from 'firebase/firestore';
+import { doc, updateDoc, writeBatch } from 'firebase/firestore/lite';
 import { useMutation, useQueryClient } from 'react-query';
 
 import { useAuthStore } from '@/store/useAuthStore';

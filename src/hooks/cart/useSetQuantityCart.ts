@@ -1,4 +1,4 @@
-import { arrayRemove, arrayUnion, doc, setDoc } from 'firebase/firestore';
+import { arrayRemove, arrayUnion, doc, setDoc } from 'firebase/firestore/lite';
 import { useMutation, useQueryClient } from 'react-query';
 import { useState } from 'react';
 

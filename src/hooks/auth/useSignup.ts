@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { ISignup } from '@/interface/form'
 import { app, db } from '@/service/firebaseApp';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore/lite';
 import { useAuthStore } from '@/store/useAuthStore';
 
 export const useSignup = () => {

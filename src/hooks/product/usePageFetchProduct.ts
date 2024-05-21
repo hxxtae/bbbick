@@ -1,4 +1,4 @@
-import { collection, getDocs, limit, orderBy, query, startAfter, where } from 'firebase/firestore';
+import { collection, getDocs, limit, orderBy, query, startAfter, where } from 'firebase/firestore/lite';
 import { useInfiniteQuery } from 'react-query';
 import { useCallback } from 'react';
 
@@ -6,8 +6,8 @@ import { BooksKinds, CategoryTotalKey, ProductType } from '@/interface/products'
 import { queryKeys } from '@/constants/keys';
 import { db } from '@/service/firebaseApp';
 
-const firstLimit = 10;
-const nextLimit = 5;
+const firstLimit = 3;
+const nextLimit = 3;
 
 interface usePageFetchProductProps {
   category: BooksKinds;

@@ -1,4 +1,4 @@
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore/lite';
 import { FirebaseError } from 'firebase/app';
 import { useQuery } from 'react-query';
 

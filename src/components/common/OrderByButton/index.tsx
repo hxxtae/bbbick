@@ -1,4 +1,4 @@
-import { OrderByDirection } from 'firebase/firestore';
+import { OrderByDirection } from 'firebase/firestore/lite';
 import * as S from './style';
 import { OrderKinds } from '@/interface/products';
 

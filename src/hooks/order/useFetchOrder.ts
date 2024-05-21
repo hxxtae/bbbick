@@ -3,7 +3,7 @@ import { IHistory } from '@/interface/order';
 import { db } from '@/service/firebaseApp';
 import { useAuthStore } from '@/store/useAuthStore'
 import { FirebaseError } from 'firebase/app';
-import { collection, getDocs, limit, orderBy, query, startAfter } from 'firebase/firestore';
+import { collection, getDocs, limit, orderBy, query, startAfter } from 'firebase/firestore/lite';
 import { useInfiniteQuery } from 'react-query';
 
 const firstLimit = 5;
