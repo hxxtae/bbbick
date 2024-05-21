@@ -10,20 +10,22 @@ import { NotFind } from '@/components/common/NotFind';
 import { useSetCart } from '@/hooks/cart/useSetCart';
 import { CategoryKey } from '@/interface/products';
 import { numberFormat } from '@/utils/format';
+import Skeleton from '@muiDom/Skeleton';
 import { Books } from '@/layout/Books';
 import * as S from './style';
 
 export const ProductDetail = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const path = useParams()
+  const path = useParams();
   const { isProductLoading, isProductReLoading, product } = useDetailFetchProduct(state?.id || path?.bookid);
   const { isLoading, getCartItem } = useFetchCart();
   const { onAddCart } = useSetCart();
+  const detailLoading = isProductLoading || isProductReLoading;
 
   const cartAddHandler = (nowPay: boolean = false) => {
     if (!state.id) return;
-    if (isProductLoading || isProductReLoading || isLoading) {
+    if (detailLoading || isLoading) {
       alert("잠시만 기다려주세요.");
       return;
     }
@@ -39,8 +41,8 @@ export const ProductDetail = () => {
   return (
     <S.Section sx={{ bgcolor: "bg.card" }}>
       <S.Block sx={{ bgcolor: "bg.main" }}>
-        {(isLoading || isProductLoading || isProductReLoading) ? <LineLoading fixed={true} /> :
-          product ?
+        {(detailLoading) && <LineLoading fixed={true} />}
+        {product ?
             (<S.Wrapper>
               <S.Left>
                 <ShinyCard>
@@ -84,12 +86,16 @@ export const ProductDetail = () => {
                   <S.BuyNow variant="contained" onClick={() => cartAddHandler(true)}>바로구매</S.BuyNow>
                 </S.ButtonGroup>
               </S.Right>
-            </S.Wrapper>) : <NotFind text="이미 만료된 상품입니다." height="400px" />}
+            </S.Wrapper>) : detailLoading ?
+            <Skeleton variant="rounded" width={"100%"} height={400} /> :
+            <NotFind text="이미 만료된 상품입니다." height="400px" />}
           </S.Block>
 
           <S.Block sx={{ bgcolor: "bg.main", mt: "20px" }}>
             <S.Title>책 소개</S.Title>
-            <S.Desc>{product?.desc}</S.Desc>
+            {product ? <S.Desc>{product?.desc}</S.Desc> :
+            detailLoading ? <Skeleton variant="rounded" width={"100%"} height={200} /> :
+            null}
           </S.Block>
 
       <S.Block sx={{ bgcolor: "bg.main", mt: "20px" }}>
