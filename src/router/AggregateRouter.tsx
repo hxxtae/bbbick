@@ -25,7 +25,7 @@ export const AggregateRouter = ({ route, children }: AggregateRouterProps) => {
       return children
     }
     const path = auth?.authType ? "/" : "/signin";
-    alert("구매자만 접근 가능합니다.");
+    console.log("구매자만 접근 가능합니다.");
     return <Navigate to={path} replace state={{...locate}} />
   }
 
@@ -34,7 +34,7 @@ export const AggregateRouter = ({ route, children }: AggregateRouterProps) => {
     if (auth?.uid && auth.authType) {
       return children
     }
-    alert("판매자(관리자)만 접근 가능합니다.")
+    console.log("판매자(관리자)만 접근 가능합니다.")
     return <Navigate to={"/"} replace state={{...locate}} />
   }
 
