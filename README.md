@@ -99,14 +99,14 @@ npm run dev
 
 <!-- <img src="https://img.shields.io/badge/[기술명]-[배경색]?style=flat-square&logo=[아이콘명]&logoColor=[글자색]"/> -->
 
-<img src="https://img.shields.io/badge/Vite-white?style=flat-square&logo=vite"/>
-<img src="https://img.shields.io/badge/React-white?style=flat-square&logo=react"/>
-<img src="https://img.shields.io/badge/typescript-white?style=flat-square&logo=typescript"/><br/>
-<img src="https://img.shields.io/badge/zustand-white?style=flat-square&logo=zustand"/>
-<img src="https://img.shields.io/badge/reactquery-white?style=flat-square&logo=reactquery"/><br/>
-<img src="https://img.shields.io/badge/styledcomponents-white?style=flat-square&logo=styledcomponents"/><br/>
-<img src="https://img.shields.io/badge/firebase-white?style=flat-square&logo=firebase"/>
-<img src="https://img.shields.io/badge/jest-red?style=flat-square&logo=jest"/>
+![vite](https://img.shields.io/badge/Vite-white?style=flat-square&logo=vite)
+![React](https://img.shields.io/badge/React-white?style=flat-square&logo=react)
+![typescript](https://img.shields.io/badge/typescript-white?style=flat-square&logo=typescript)   
+![zustand](https://img.shields.io/badge/zustand-white?style=flat-square&logo=zustand)
+![reactquery](https://img.shields.io/badge/reactquery-white?style=flat-square&logo=reactquery)
+![styledcomponents](https://img.shields.io/badge/styledcomponents-white?style=flat-square&logo=styledcomponents)   
+![firebase](https://img.shields.io/badge/firebase-white?style=flat-square&logo=firebase)
+![jest](https://img.shields.io/badge/jest-red?style=flat-square&logo=jest)
 
 ## 디렉터리 구조
 
