@@ -58,32 +58,32 @@ npm run dev
 
 > 카테고리별로 책을 조회하여 원하는 유형의 책을 찾을 수 있습니다.
 
-<img src="https://github.com/hxxtae/bbbick/assets/79623316/61c9e8e9-ca36-4d95-a02b-102a8998ad49" style="width: 100%">
+<img src="https://github.com/hxxtae/bbbick/assets/79623316/61c9e8e9-ca36-4d95-a02b-102a8998ad49" style="width: 700px">
 
 ### [`구매자용` 장바구니]
 
 > 장바구니에 구매할 책 상품들을 보관할 수 있습니다.
 
-<img src="https://github.com/hxxtae/bbbick/assets/79623316/b781e409-9cde-44f0-b3dc-046d17b9aea2" style="width: 100%">
+<img src="https://github.com/hxxtae/bbbick/assets/79623316/b781e409-9cde-44f0-b3dc-046d17b9aea2" style="width: 700px">
 
 ### [`구매자용` 상품 주문 및 결제]
 
 > 장바구니에 담은 책 상품들을 수량 및 금액 확인 후 바로 결제 프로세스를 진행합니다.
 
-<img src="https://github.com/hxxtae/bbbick/assets/79623316/e272f0b4-96f4-4e61-a7e9-0cf6b079d10b" style="width: 100%">
+<img src="https://github.com/hxxtae/bbbick/assets/79623316/e272f0b4-96f4-4e61-a7e9-0cf6b079d10b" style="width: 700px">
 
 ### [`구매자용` 구매내역]
 
 > 결제된 상품들을 언제든지 구매내역을 통해 확인할 수 있습니다.
 > 결제를 취소하고 싶다면 주문 취소가 가능합니다.
 
-<img src="https://github.com/hxxtae/bbbick/assets/79623316/ef099ffa-1044-44d9-ba9e-904951a60822" style="width: 100%">
+<img src="https://github.com/hxxtae/bbbick/assets/79623316/ef099ffa-1044-44d9-ba9e-904951a60822" style="width: 700px">
 
 ### [`구매자용` 마이페이지]
 
 > 구매자의 프로필, 닉네임, 비밀번호, 배송지 주소 등을 관리할 수 있습니다.
 
-<img src="https://github.com/hxxtae/bbbick/assets/79623316/48a448a2-8200-4ab5-acfd-858447e01dbd" style="width: 100%">
+<img src="https://github.com/hxxtae/bbbick/assets/79623316/48a448a2-8200-4ab5-acfd-858447e01dbd" style="width: 700px">
 
 ### [`판매자용` 상품등록, 수정, 삭제]
 
