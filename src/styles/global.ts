@@ -1,6 +1,16 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: "Noto Sans KR", sans-serif;
+    src: url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300..600&display=swap) format("woff2");
+    font-display: swap;
+  }
+
+  * {
+    font-size: 14px;
+  }
+
   .css-10hburv-MuiTypography-root, 
   .css-yb0lig {
     font-size: 14px !important;
@@ -40,9 +50,6 @@ export const GlobalStyle = createGlobalStyle`
     background: rgba(191, 198, 208, .8);
     border-radius: 4px 0 0 4px;
   }
-
-
-
 
   body {
     margin: 0;

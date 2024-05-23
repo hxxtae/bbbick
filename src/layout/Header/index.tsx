@@ -15,7 +15,7 @@ export const Header = () => {
     <S.Section>
       <S.Left>
         <Link to={"/"}>
-          <S.Img src={`${import.meta.env.BASE_URL}assets/image/BBBick_title.png`}></S.Img>
+          <S.Img src={`${import.meta.env.BASE_URL}assets/image/BBBick_title.png`} />
         </Link>
       </S.Left>
       <S.Right>

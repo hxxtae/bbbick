@@ -20,7 +20,7 @@ export const Book = React.memo(({ item, category }: BookProps) => {
         <S.ImageBox>
           <S.ImageWrapper>
             <Link to={`/${category}/${item.id}`} state={item}>
-              <S.Image src={item.productImg_url[0].url} loading='lazy' style={{ width: "125px" }} />
+              <S.Image src={item.productImg_url[0].url} loading='lazy' style={{ width: "125px" }} alt="북 이미지" />
             </Link>
           </S.ImageWrapper>
           <S.ImageBottom sx={{ bgcolor: "bg.card" }}>

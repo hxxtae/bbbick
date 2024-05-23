@@ -8,6 +8,7 @@ export const getDesignTokens = (mode: PaletteMode) => ({
   },
   typography: {
     ...typography,
+    fontFamily: 'Noto Sans KR, sans-serif',
     fontSize: 14,
   },
 });

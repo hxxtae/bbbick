@@ -11,7 +11,6 @@ export const AppLayout = ({ children }: PropsWithChildren) => {
       <CustomThemeProvider>
         <CssBaseline />
         <S.Wrapper>
-          {/* <button onClick={setMode}>Theme</button> */}
           {children}
         </S.Wrapper>
       </CustomThemeProvider>
