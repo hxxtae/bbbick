@@ -6,8 +6,8 @@ import { BooksKinds, CategoryTotalKey, ProductType } from '@/interface/products'
 import { queryKeys } from '@/constants/keys';
 import { db } from '@/service/firebaseApp';
 
-const firstLimit = 3;
-const nextLimit = 3;
+const firstLimit = 5;
+const nextLimit = 5;
 
 interface usePageFetchProductProps {
   category: BooksKinds;

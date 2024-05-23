@@ -41,8 +41,10 @@ export const useSetOrder = () => {
     try {
       const batch = writeBatch(db);
       createOrders.forEach((orderData, idx) => {
-        const orderId = "ORD"+"_"+idx.toString()+"_"+Date.now().toString();
+        const orderId = "ORD" + "_" + idx.toString() + "_" + Date.now().toString();
+        const saleRate = (orderData.saleRate ?? 0) + (orderData.cartQuantity ?? 0);
         batch.set(doc(db, "order", authId, "authOrder", orderId), { ...orderData, orderId });
+        batch.update(doc(db, "products", orderData.id), { saleRate });
       });
       await batch.commit();
     } catch (error) {

@@ -56,7 +56,7 @@ export const useSetCart = () => {
 // [DB API - Set Cart (remove)]
   const removeCartStore = async () => {
     if (!auth?.uid) {
-      alert("로그인 후 다시 시도해주세요.");
+      console.error('인증된 권한이 없습니다.')
       return;
     }
 
