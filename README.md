@@ -8,7 +8,7 @@
 
 # BBBick · ![Gitea Last Commit (dev-branch)](https://img.shields.io/github/last-commit/hxxtae/bbbick/dev?color=blue)
 
-온라인 북 커머스 플랫폼 입니다.   
+온라인 북(Book) 커머스 플랫폼 입니다.   
 
 <br>
 
@@ -33,24 +33,21 @@
 
 ```bash
 git clone https://github.com/hxxtae/bbbick.git
-
 cd bbbick
-
 npm install
-
 npm run dev
 ```
 
 ## 기술적 도전
 
 - [React Dev Tools의 Profiler를 활용한 렌더링 성능 개선](https://dev.to/hxxtae/react-dev-toolsyi-profilerreul-hwalyonghan-rendeoring-seongneung-gaeseon-h1g)
-- [Lighthouse를 활용한 Tree Shaking 및 빌드 경량화](https://dev.to/hxxtae/lighthousereul-hwalyonghan-tree-shaking-8ie)
-- 주문 과정의 직접적인 URL 접근을 막기 위한 고민
-- DOM outside 클릭 감지에 대한 고민
+- [Lighthouse Treemap을 활용한 Tree Shaking 및 빌드 경량화](https://dev.to/hxxtae/lighthousereul-hwalyonghan-tree-shaking-8ie)
+- [Lighthouse를 활용하여 LCP 점수 개선](https://dev.to/hxxtae/lighthousereul-hwalyonghayeo-lcp-jeomsu-gaeseonhagi-3o3i)
+- [DOM outside 클릭 감지에 대한 고민](https://dev.to/hxxtae/react-click-outside-area-of-element-4g8f)
 
 ## 트러블슈팅
-- [Named export 컴포넌트 lazy 호출 시 문제 개선](https://dev.to/hxxtae/named-export-keomponeonteu-dongjeog-import-hoculhagi-dnm)
-- 라우터 페이지 이동 시 스크롤이 유지되는 현상 개선
+- [Named export 컴포넌트 lazy 호출 시 문제](https://dev.to/hxxtae/named-export-keomponeonteu-dongjeog-import-hoculhagi-dnm)
+- 라우터 페이지 이동 시 스크롤이 유지되는 현상
 
 ## 주요 기능
 
