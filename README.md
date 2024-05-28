@@ -88,6 +88,13 @@ npm run dev
 
 (UI 수정중)
 
+## 와이어프레임 구조 설계
+
+> 사용한 디자인 톨 : Figma   
+> 설계 기준 : 페이지 및 컴포넌트 단위
+
+![figma_1](https://github.com/hxxtae/bbbick/assets/79623316/035a3683-8b28-487e-9b9d-65145b484ec8)
+
 ## 아키텍처
 
 ![bbbick 아키텍처](https://github.com/hxxtae/bbbick/assets/79623316/db0c61ef-15d7-4690-b37e-49627dfe52e9)
