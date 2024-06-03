@@ -24,5 +24,6 @@ export const queryKeys = {
   },
   order: {
     all: ['/order'] as const,
+    scroll: () => [...queryKeys.order.all, 'scroll'],
   }
 }

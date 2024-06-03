@@ -38,7 +38,7 @@ export const useFetchOrder = () => {
   }
 
   const { data, isFetchingNextPage, hasNextPage, fetchNextPage, isLoading } = useInfiniteQuery({
-    queryKey: queryKeys.order.all,
+    queryKey: queryKeys.order.scroll(),
     queryFn: ({ pageParam }) => getOrderStorage(pageParam),
     getNextPageParam: ({ cursor }) => {
       return cursor.size < 1 ? null : cursor.docs[cursor.docs.length - 1]
