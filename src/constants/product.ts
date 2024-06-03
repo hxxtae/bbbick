@@ -28,6 +28,7 @@ export const BOOK_CATEGORY_1: CategoryObjValue1 = {
   "020": "자기계발",
   "030": "에세이",
   "040": "IT모바일",
+  "050": "소설/시/희곡",
 }
 
 export const BOOK_CATEGORY_2: { [key in CategoryKey]: CategoryObjValue2 } = {
@@ -49,5 +50,9 @@ export const BOOK_CATEGORY_2: { [key in CategoryKey]: CategoryObjValue2 } = {
     "B3": "컴퓨터 공학",
     "B4": "웹사이트",
     "B5": "게임",
+  },
+  "050": {
+    "B1": "영미소설",
+    "B2": "중국소설",
   }
 }
